@@ -1,390 +1,1467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alikhitha - Book Trailer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yellow Feather Books — Literary Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:ital@0;1&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            background: #000;
-            overflow: hidden;
-        }
+<style>
+/* ─── TOKENS ─── */
+:root {
+  --cream:   #faf6ef;
+  --parchment: #f2ead8;
+  --gold:    #c89020;
+  --gold-lt: #e8b840;
+  --gold-dk: #8a6010;
+  --ink:     #1c1610;
+  --ink-mid: #3d3020;
+  --ink-lt:  #7a6848;
+  --rust:    #a03820;
+  --sage:    #4a6050;
+  --rule:    rgba(200,144,32,0.25);
+  --serif:   'Playfair Display', Georgia, serif;
+  --body:    'EB Garamond', Georgia, serif;
+  --mono:    'DM Mono', monospace;
+}
 
-        .video-container {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            background: #000;
-        }
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-        .scene {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
+/* ─── GRAIN OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1000; opacity: 0.35;
+}
 
-        .scene.active {
-            opacity: 1;
-            z-index: 10;
-        }
+/* ─── TOPBAR ─── */
+.topbar {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.topbar-ticker {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+@keyframes ticker {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+.ticker-dot { color: var(--gold-lt); margin: 0 20px; }
 
-        .scene-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            animation: kenBurns 5s ease-in-out;
-        }
+/* ─── NAV ─── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream);
+  position: sticky; top: 0; z-index: 100;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+}
+.nav-logo img {
+  height: 48px; width: 48px; border-radius: 50%;
+}
+.nav-logo-text {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.nav-logo-text span {
+  display: block;
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-weight: 400;
+}
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); border-color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--ink) !important;
+  padding: 8px 18px !important;
+  border-radius: 1px !important;
+  border: none !important;
+  font-weight: 600;
+}
+.nav-cta:hover { background: var(--gold-lt) !important; color: var(--ink) !important; }
 
-        @keyframes kenBurns {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.1);
-            }
-        }
+/* ─── HERO ─── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  min-height: 90vh;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-main {
+  padding: 80px 64px 80px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-eyebrow span { color: var(--rust); }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5.5vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-dk);
+}
+.hero-excerpt {
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 20px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-lt); letter-spacing: 2px; text-transform: uppercase;
+}
+.hero-meta::before {
+  content: '';
+  display: block; width: 40px; height: 1px;
+  background: var(--gold);
+}
+.hero-tag {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  margin-bottom: 20px;
+}
+.btn-read {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-read:hover { background: var(--gold); color: var(--ink); }
+.btn-read svg { transition: transform 0.2s; }
+.btn-read:hover svg { transform: translateX(4px); }
 
-        .text-overlay {
-            position: absolute;
-            bottom: 12%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            font-weight: 900;
-            color: #fff;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 4px 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8);
-            padding: 15px 30px;
-            max-width: 90%;
-            line-height: 1.3;
-            opacity: 0;
-            animation: textReveal 1.5s ease forwards;
-            animation-delay: 0.8s;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%);
-            border-radius: 10px;
-        }
+/* Hero sidebar */
+.hero-sidebar {
+  display: flex; flex-direction: column;
+  background: var(--parchment);
+}
+.hero-sidebar-top {
+  flex: 1;
+  padding: 40px 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.sidebar-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--ink-lt);
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.trending-list { list-style: none; }
+.trending-list li {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.trending-list li:last-child { border-bottom: none; }
+.trending-list li:hover { opacity: 0.7; }
+.trending-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--gold);
+  min-width: 24px;
+  padding-top: 2px;
+}
+.trending-title {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.trending-author {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-lt);
+  margin-top: 2px;
+}
+.hero-quote-block {
+  padding: 36px;
+  background: var(--ink);
+  color: var(--parchment);
+}
+.hero-quote {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.hero-quote-attr {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+}
 
-        @keyframes textReveal {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(40px);
-                filter: blur(5px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-                filter: blur(0);
-            }
-        }
+/* ─── DATE STRIP ─── */
+.date-strip {
+  display: flex;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.date-strip-item {
+  flex: 1;
+  padding: 16px 24px;
+  border-right: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  display: flex; align-items: center; gap: 8px;
+}
+.date-strip-item:last-child { border-right: none; }
+.date-strip-item strong { color: var(--ink); font-style: normal; }
 
-        .controls {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+/* ─── SECTION HEADERS ─── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+}
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.section-header h2 em { font-style: italic; color: var(--gold-dk); }
+.section-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.section-link:hover { color: var(--gold-dk); }
 
-        .control-btn {
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.8);
-            color: #fff;
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+/* ─── CONTENT SECTIONS ─── */
+.section { padding: 72px 80px; border-bottom: 1px solid var(--rule); }
 
-        .control-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
+/* ─── LITERARY TRENDS ─── */
+.trends-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.trend-card {
+  padding: 36px 32px;
+  border-right: 1px solid var(--rule);
+  transition: background 0.25s;
+  cursor: pointer;
+}
+.trend-card:last-child { border-right: none; }
+.trend-card:hover { background: var(--parchment); }
+.trend-card-region {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.trend-card-region::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--rule);
+}
+.trend-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.trend-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+.trend-card-footer {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-lt);
+  text-transform: uppercase;
+}
 
-        .control-btn:active {
-            transform: translateY(0);
-        }
+/* ─── NEW ARRIVALS ─── */
+.arrivals-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.arrival-featured {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 48px 44px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+.arrival-featured:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+.arrival-featured::before {
+  content: '📚';
+  position: absolute;
+  font-size: 160px;
+  top: -20px; right: -20px;
+  opacity: 0.07;
+  line-height: 1;
+}
+.arrival-featured-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.arrival-featured h3 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.arrival-featured .author {
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(242,234,216,0.7);
+  margin-bottom: 18px;
+}
+.arrival-featured p { font-size: 15px; line-height: 1.65; opacity: 0.8; margin-bottom: 24px; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  align-self: flex-start;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: var(--gold-lt); }
 
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #FFD700, #FF6B00, #FF0000);
-            width: 0%;
-            transition: width 0.3s ease;
-            z-index: 1001;
-            box-shadow: 0 0 20px rgba(255,215,0,0.6);
-        }
+.arrivals-list { display: flex; flex-direction: column; gap: 0; }
+.arrival-item {
+  display: flex; gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.arrival-item:last-child { border-bottom: none; }
+.arrival-item:hover { opacity: 0.7; }
+.arrival-thumb {
+  width: 64px; height: 80px;
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.arrival-info { flex: 1; }
+.arrival-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--rust);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.arrival-info h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.arrival-info .author {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-lt);
+  margin-bottom: 6px;
+}
+.arrival-info p { font-size: 13px; line-height: 1.6; color: var(--ink-mid); }
+.arrival-price {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--gold-dk);
+  font-weight: 600;
+  align-self: center;
+  white-space: nowrap;
+}
 
-        .sound-toggle {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.8);
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.8rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
+/* ─── REVIEWS ─── */
+.reviews-section { background: var(--parchment); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.review-card {
+  background: var(--cream);
+  padding: 32px 28px;
+  border-top: 3px solid var(--gold);
+  transition: box-shadow 0.25s;
+}
+.review-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+.review-stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.review-book {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.review-book-author {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-lt);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.review-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+.review-meta {
+  display: flex; align-items: center; gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.review-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.review-by {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-lt);
+  text-transform: uppercase;
+}
+.review-by strong { display: block; color: var(--ink); font-weight: 600; }
 
-        .sound-toggle:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
-        }
+/* ─── COMMUNITY / FORUM ─── */
+.community-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+}
+.forum-threads { list-style: none; }
+.forum-thread {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; gap: 20px; align-items: flex-start;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.forum-thread:hover { opacity: 0.7; }
+.forum-thread:first-child { padding-top: 0; }
+.thread-icon {
+  width: 40px; height: 40px;
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.thread-body { flex: 1; }
+.thread-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--sage);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.thread-body h4 {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+.thread-body p { font-size: 13px; color: var(--ink-lt); }
+.thread-stats {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-lt);
+  letter-spacing: 1px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.thread-stats span { display: block; }
 
-        .scene-counter {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.8);
-            color: #fff;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
+/* Events sidebar */
+.events-sidebar h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.event-item {
+  display: flex; gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer; transition: opacity 0.2s;
+}
+.event-item:hover { opacity: 0.7; }
+.event-date {
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 48px; height: 52px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.event-date strong { font-size: 20px; font-weight: 700; display: block; line-height: 1; }
+.event-info h4 {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.event-info p { font-size: 12px; color: var(--ink-lt); }
 
-            @media (max-width: 768px) {
-            .text-overlay {
-                font-size: 1.3rem;
-                letter-spacing: 2px;
-                padding: 12px 20px;
-                bottom: 15%;
-            }
+/* ─── NEWSLETTER ─── */
+.newsletter {
+  background: var(--ink);
+  color: var(--parchment);
+  text-align: center;
+  padding: 80px;
+}
+.newsletter-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--gold-lt);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.newsletter h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+.newsletter h2 em { font-style: italic; color: var(--gold-lt); }
+.newsletter p {
+  font-size: 17px;
+  color: rgba(242,234,216,0.7);
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+.newsletter-form {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto 16px;
+  gap: 0;
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(200,144,32,0.3);
+  border-right: none;
+  color: var(--parchment);
+  font-family: var(--body);
+  font-size: 16px;
+  outline: none;
+}
+.newsletter-form input::placeholder { color: rgba(242,234,216,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 14px 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 600;
+}
+.newsletter-form button:hover { background: var(--gold-lt); }
+.newsletter-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(242,234,216,0.3);
+  text-transform: uppercase;
+}
 
-            .control-btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
+/* ─── WRITER CORNER ─── */
+.writer-section {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--rule);
+}
+.writer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.writer-visual {
+  background: var(--ink);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.writer-visual::before {
+  content: '✍';
+  position: absolute;
+  font-size: 200px;
+  top: -30px; right: -30px;
+  opacity: 0.05;
+  line-height: 1;
+}
+.writer-visual h3 {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--parchment);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.writer-visual p {
+  font-size: 16px;
+  color: rgba(242,234,216,0.75);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  position: relative; z-index: 1;
+}
+.writer-perks { list-style: none; position: relative; z-index: 1; }
+.writer-perks li {
+  font-size: 15px;
+  color: rgba(242,234,216,0.85);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(200,144,32,0.15);
+  display: flex; align-items: center; gap: 12px;
+}
+.writer-perks li::before { content: '—'; color: var(--gold-lt); font-family: var(--mono); }
+.writer-form-side {}
+.writer-form-side h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.writer-form-side > p {
+  font-size: 15px;
+  color: var(--ink-lt);
+  margin-bottom: 28px;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--gold); }
+.form-group textarea { height: 100px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.btn-submit {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 14px 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  font-weight: 600;
+}
+.btn-submit:hover { background: var(--gold); color: var(--ink); }
 
-            .sound-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                top: 20px;
-                right: 20px;
-            }
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink-mid);
+  color: var(--parchment);
+  padding: 64px 80px 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand {}
+.footer-brand img {
+  height: 56px; width: 56px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  filter: brightness(0.9);
+}
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(242,234,216,0.6);
+  max-width: 260px;
+  margin-bottom: 20px;
+}
+.footer-social {
+  display: flex; gap: 12px;
+}
+.social-btn {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(200,144,32,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.social-btn:hover { border-color: var(--gold); background: rgba(200,144,32,0.1); }
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(200,144,32,0.15);
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  padding: 5px 0;
+  font-size: 14px;
+  color: rgba(242,234,216,0.65);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-col li:hover { color: var(--gold-lt); }
+.footer-bottom {
+  border-top: 1px solid rgba(200,144,32,0.1);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(242,234,216,0.3);
+  text-transform: uppercase;
+}
 
-            .scene-counter {
-                top: 20px;
-                left: 20px;
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-        }
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-main { padding: 48px 24px; }
+  .hero-sidebar { display: none; }
+  .section { padding: 48px 24px; }
+  .trends-grid { grid-template-columns: 1fr; }
+  .trend-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .arrivals-layout { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .community-layout { grid-template-columns: 1fr; }
+  .writer-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .newsletter { padding: 48px 24px; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input { border-right: 1px solid rgba(200,144,32,0.3); border-bottom: none; }
+  footer { padding: 48px 24px 24px; }
+}
 
-        .vignette {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%);
-            z-index: 100;
-        }
-    </style>
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+</style>
 </head>
 <body>
-    <audio id="bgMusic" loop>
-        <source src="Shadows in the Dark.mp3" type="audio/mpeg">
-    </audio>
 
-    <div class="video-container">
-        <div class="progress-bar" id="progressBar"></div>
-        <div class="vignette"></div>
-        
-        <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">🔊</button>
-        <div class="scene-counter" id="sceneCounter">1 / 6</div>
+<!-- TOPBAR TICKER -->
+<div class="topbar">
+  <span class="topbar-ticker">
+    ✦ NEW ARRIVAL: Alikhitha — Now Available
+    <span class="ticker-dot">◆</span>
+    Kerala Sahitya Akademi Award Shortlist 2024 Announced
+    <span class="ticker-dot">◆</span>
+    Read Gently, Dream Deeply — Let Your Soul Grow Wings
+    <span class="ticker-dot">◆</span>
+    Free Delivery on Orders Above ₹500
+    <span class="ticker-dot">◆</span>
+    NEW: Submit Your Book Review — Get Featured
+    <span class="ticker-dot">◆</span>
+    M.T. Vasudevan Nair Memorial Reading Circle — Join Now
+    <span class="ticker-dot">◆</span>
+    World Literature Week: 50+ International Titles Now In Stock
+  </span>
+</div>
 
-        <div class="scene active" id="scene1">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 1" id="img1">
-            <div class="text-overlay">A LADY ARCHITECT. A RUTHLESS MURDER.</div>
-        </div>
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">
+    <img src="/mnt/user-data/uploads/GOLD-min.png" alt="Yellow Feather Books" onerror="this.style.display='none'">
+    <div class="nav-logo-text">
+      Yellow Feather Books
+      <span>Literary Portal</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#trends">Trends</a></li>
+    <li><a href="#arrivals">New Arrivals</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#writers">Writers</a></li>
+    <li><a href="https://yellowfeatherbookstore.in" target="_blank" class="nav-cta">🛒 Buy Books</a></li>
+  </ul>
+</nav>
 
-        <div class="scene" id="scene2">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 2" id="img2">
-            <div class="text-overlay">THE TRUTH IS BURIED.</div>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <div class="hero-tag fade-up">Editor's Pick · February 2026</div>
+    <div class="hero-eyebrow fade-up delay-1">Featured Essay · <span>Malayalam Literature</span></div>
+    <h1 class="hero-title fade-up delay-2">The Soul<br>that <em>Speaks</em><br>in Rivers</h1>
+    <p class="hero-excerpt fade-up delay-3">How the backwaters of Kerala shaped a century of literary imagination — from Thakazhi's fishermen to the neo-urban novelists rewriting what it means to be Malayali in a fragmented world.</p>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:28px;" class="fade-up delay-4">
+      <a href="#" class="btn-read">
+        Read Essay
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://yellowfeatherbookstore.in" target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rule);padding-bottom:2px;">Browse Books →</a>
+    </div>
+    <div class="hero-meta fade-up delay-4">By Editorial Team &nbsp;·&nbsp; 8 min read &nbsp;·&nbsp; 247 readers today</div>
+  </div>
 
-        <div class="scene" id="scene3">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 3" id="img3">
-            <div class="text-overlay">OFFICER JOMON JOSEPH<br>FACES A DEAD END.</div>
-        </div>
+  <aside class="hero-sidebar">
+    <div class="hero-sidebar-top">
+      <div class="sidebar-label">🔥 Trending This Week</div>
+      <ul class="trending-list">
+        <li>
+          <span class="trending-num">01</span>
+          <div>
+            <div class="trending-title">Chittilasseriyile Choolamvilikkar</div>
+            <div class="trending-author">Historical Fiction · Bestseller</div>
+          </div>
+        </li>
+        <li>
+          <span class="trending-num">02</span>
+          <div>
+            <div class="trending-title">Alikhitha</div>
+            <div class="trending-author">Contemporary · New Release</div>
+          </div>
+        </li>
+        <li>
+          <span class="trending-num">03</span>
+          <div>
+            <div class="trending-title">Pinnakkidi Mottaso</div>
+            <div class="trending-author">Short Stories · Award Shortlist</div>
+          </div>
+        </li>
+        <li>
+          <span class="trending-num">04</span>
+          <div>
+            <div class="trending-title">Bougainvilleakal Pookkumbol</div>
+            <div class="trending-author">Poetry · Readers' Favourite</div>
+          </div>
+        </li>
+        <li>
+          <span class="trending-num">05</span>
+          <div>
+            <div class="trending-title">Aarum Kaanatha Yudhangal</div>
+            <div class="trending-author">War Literature · Powerful Narrative</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="hero-quote-block">
+      <div class="hero-quote">"ഒരു കഥ കഴിഞ്ഞ് മറ്റൊന്ന് — ജീവിതം അങ്ങനെ ഒഴുകുന്നു."</div>
+      <div class="hero-quote-attr">— One story ends, another begins. Life flows like that. — M.T. Vasudevan Nair</div>
+    </div>
+  </aside>
+</section>
 
-        <div class="scene" id="scene4">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 4" id="img4">
-            <div class="text-overlay">THE CLUE IS IN THE LINEAGE.</div>
-        </div>
+<!-- DATE STRIP -->
+<div class="date-strip">
+  <div class="date-strip-item">📅 <strong>Feb 24, 2026</strong></div>
+  <div class="date-strip-item">📚 <strong>847</strong> Books in Collection</div>
+  <div class="date-strip-item">✍️ <strong>12</strong> New Reviews This Week</div>
+  <div class="date-strip-item">🌍 <strong>World Literature</strong> Week Ongoing</div>
+  <div class="date-strip-item">🎉 <strong>March 1</strong> — Reading Circle Event</div>
+</div>
 
-        <div class="scene" id="scene5">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 5" id="img5">
-            <div class="text-overlay">THE HUNT BEGINS.</div>
-        </div>
+<!-- LITERARY TRENDS -->
+<section class="section" id="trends">
+  <div class="section-header">
+    <h2>Literary <em>Trends</em></h2>
+    <a href="#" class="section-link">View All Columns →</a>
+  </div>
+  <div class="trends-grid">
+    <div class="trend-card">
+      <div class="trend-card-region">🌍 World Literature</div>
+      <h3>The Return of the Village Novel: Rural Voices in Global Fiction</h3>
+      <p>From Knausgård's Norwegian countryside to Ngugi's Kenyan landscapes, literary fiction is turning its gaze back to the village — and finding the universal in the hyperlocal.</p>
+      <div class="trend-card-footer">Analysis · 6 min read</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-region">🇮🇳 Indian Literature</div>
+      <h3>Dalit Voices and the Rewriting of the Indian Novel's Canon</h3>
+      <p>A new generation of Dalit writers in Malayalam, Tamil, and Marathi are dismantling the upper-caste gaze that long dominated Indian literary imagination.</p>
+      <div class="trend-card-footer">Essay · 8 min read</div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-region">🌿 Malayalam Letters</div>
+      <h3>Young Narrators, Old Memories: The New Wave of Kerala Short Fiction</h3>
+      <p>Under-35 Malayalam writers are blending Instagram-era brevity with the richness of Nair-era lyricism — creating a new language that feels both ancient and electric.</p>
+      <div class="trend-card-footer">Spotlight · 5 min read</div>
+    </div>
+  </div>
+</section>
 
-        <div class="scene" id="scene6">
-            <img class="scene-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Scene 6" id="img6">
-            <div class="text-overlay">THE INITIAL CLUE WAS A LIE.<br>THE FINAL ANSWER WAS HISTORY.</div>
-        </div>
-
-        <div class="controls">
-            <button class="control-btn" onclick="restart()">↻ RESTART</button>
-            <button class="control-btn" onclick="togglePlay()" id="playBtn">⏸ PAUSE</button>
-        </div>
+<!-- NEW ARRIVALS -->
+<section class="section" id="arrivals" style="background:var(--parchment);">
+  <div class="section-header">
+    <h2>🚨 <em>Just Arrived</em></h2>
+    <a href="https://yellowfeatherbookstore.in/collections/%F0%9F%9A%A8%F0%9F%93%9A-just-arrived" target="_blank" class="section-link">Shop All New Arrivals →</a>
+  </div>
+  <div class="arrivals-layout">
+    <div class="arrival-featured" onclick="window.open('https://yellowfeatherbookstore.in/products/alikhitha','_blank')">
+      <div class="arrival-featured-tag">📖 Book of the Month · Feb 2026</div>
+      <h3>Alikhitha</h3>
+      <div class="author">Malayalam Fiction · New Release</div>
+      <p>A haunting novel about identity, belonging, and the letters we write to ourselves across time. Beautifully wrought, emotionally devastating — this is the kind of Malayalam fiction that reminds you why stories matter.</p>
+      <a href="https://yellowfeatherbookstore.in/products/alikhitha" target="_blank" class="btn-gold">
+        Buy Now — ₹360
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
 
-    <script>
-        const images = [
-            'https://i.ibb.co/placeholder1.jpg',
-            'https://i.ibb.co/placeholder2.jpg', 
-            'https://i.ibb.co/placeholder3.jpg',
-            'https://i.ibb.co/placeholder4.jpg',
-            'https://i.ibb.co/placeholder5.jpg',
-            'https://i.ibb.co/placeholder6.jpg'
-        ];
+    <div class="arrivals-list">
+      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/naramundo-khela','_blank')">
+        <div class="arrival-thumb">📗</div>
+        <div class="arrival-info">
+          <div class="arrival-badge">New · Fiction</div>
+          <h4>Naramundo Khela</h4>
+          <div class="author">Malayalam</div>
+          <p>A darkly comic tale of small-town Kerala intrigue.</p>
+        </div>
+        <div class="arrival-price">₹145</div>
+      </div>
 
-        let currentScene = 1;
-        const totalScenes = 6;
-        const sceneDuration = 5000;
-        let interval;
-        let isPlaying = true;
-        const bgMusic = document.getElementById('bgMusic');
-        let isMuted = false;
+      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/301-aam-number-muriyile-maranam','_blank')">
+        <div class="arrival-thumb">📘</div>
+        <div class="arrival-info">
+          <div class="arrival-badge">New · Crime</div>
+          <h4>301–Aam Number Muriyile Maranam</h4>
+          <div class="author">Malayalam Thriller</div>
+          <p>Who died in room 301? A gripping literary mystery.</p>
+        </div>
+        <div class="arrival-price">₹162</div>
+      </div>
 
-        function loadImageFromFile(file, imgId) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById(imgId).src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
+      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/aarum-kaanatha-yudhangal','_blank')">
+        <div class="arrival-thumb">📕</div>
+        <div class="arrival-info">
+          <div class="arrival-badge">New · War Literature</div>
+          <h4>Aarum Kaanatha Yudhangal</h4>
+          <div class="author">Malayalam</div>
+          <p>Wars nobody saw. Battles fought in silence and shadow.</p>
+        </div>
+        <div class="arrival-price">₹213</div>
+      </div>
 
-        document.addEventListener('click', function playOnce() {
-            bgMusic.play().catch(e => console.log('Audio playback:', e));
-            document.removeEventListener('click', playOnce);
-        }, { once: true });
+      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/bougainvilleakal-pookkumbol','_blank')">
+        <div class="arrival-thumb">📙</div>
+        <div class="arrival-info">
+          <div class="arrival-badge">New · Poetry</div>
+          <h4>Bougainvilleakal Pookkumbol</h4>
+          <div class="author">Malayalam Poetry</div>
+          <p>Verses that bloom like bougainvillea — vivid and impossible to ignore.</p>
+        </div>
+        <div class="arrival-price">₹128</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function showScene(sceneNum) {
-            document.querySelectorAll('.scene').forEach(scene => {
-                scene.classList.remove('active');
-            });
-            document.getElementById(`scene${sceneNum}`).classList.add('active');
-            updateProgress();
-            updateCounter();
-        }
+<!-- REVIEWS -->
+<section class="section reviews-section" id="reviews">
+  <div class="section-header">
+    <h2>Reader <em>Reviews</em></h2>
+    <a href="#" class="section-link">Submit Your Review →</a>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-book">Chittilasseriyile Choolamvilikkar</div>
+      <div class="review-book-author">Historical Fiction</div>
+      <p class="review-text">"I finished it in one sitting. The historical detail is extraordinary — you don't just read it, you inhabit it. One of the most important Malayalam novels of this decade."</p>
+      <div class="review-meta">
+        <div class="review-avatar">A</div>
+        <div class="review-by"><strong>Arjun Menon</strong>Kozhikode · Verified Reader</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-book">Pinnakkidi Mottaso</div>
+      <div class="review-book-author">Short Stories</div>
+      <p class="review-text">"Each story is a small wound that heals slowly. The author writes with scalpel precision and poet's heart. Rarely do short stories linger this long in the mind."</p>
+      <div class="review-meta">
+        <div class="review-avatar">S</div>
+        <div class="review-by"><strong>Sreelakshmi P.</strong>Thiruvananthapuram · Book Club Member</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-book">Bougainvilleakal Pookkumbol</div>
+      <div class="review-book-author">Poetry Collection</div>
+      <p class="review-text">"I read it every morning with my coffee. There's a poem in here about a grandmother's hands that made me cry without warning. Essential poetry for our times."</p>
+      <div class="review-meta">
+        <div class="review-avatar">N</div>
+        <div class="review-by"><strong>Nithya Ramesh</strong>Thrissur · Poetry Reader</div>
+      </div>
+    </div>
+  </div>
 
-        function nextScene() {
-            currentScene++;
-            if (currentScene > totalScenes) {
-                currentScene = 1;
-            }
-            showScene(currentScene);
-        }
+  <!-- Review submission CTA -->
+  <div style="margin-top:40px;padding:32px 36px;border:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div>
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:6px;">Share Your Reading Experience</div>
+      <div style="font-size:15px;color:var(--ink-lt);">Read a book from Yellow Feather? Tell the world what you thought — your review helps other readers discover their next great read.</div>
+    </div>
+    <a href="#writers" class="btn-read" style="white-space:nowrap;">Write a Review →</a>
+  </div>
+</section>
 
-        function updateProgress() {
-            const progress = (currentScene / totalScenes) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-        }
+<!-- COMMUNITY -->
+<section class="section" id="community">
+  <div class="section-header">
+    <h2>Readers &amp; <em>Writers</em></h2>
+    <a href="#" class="section-link">Join the Community →</a>
+  </div>
+  <div class="community-layout">
+    <!-- Forum threads -->
+    <div>
+      <div class="sidebar-label" style="margin-bottom:0;">Discussion Threads</div>
+      <ul class="forum-threads">
+        <li class="forum-thread">
+          <div class="thread-icon">💬</div>
+          <div class="thread-body">
+            <div class="thread-tag">Reading Circle</div>
+            <h4>Which Malayalam novel would you recommend to a first-time reader of the language?</h4>
+            <p>Started by Amal · 3 days ago · Highly active</p>
+          </div>
+          <div class="thread-stats">
+            <span>38 replies</span>
+            <span style="color:var(--gold);">🔥 Hot</span>
+          </div>
+        </li>
+        <li class="forum-thread">
+          <div class="thread-icon">🌍</div>
+          <div class="thread-body">
+            <div class="thread-tag">World Literature</div>
+            <h4>Magical Realism beyond Márquez — underrated international novels worth reading</h4>
+            <p>Started by Devika R. · 1 week ago</p>
+          </div>
+          <div class="thread-stats">
+            <span>24 replies</span>
+          </div>
+        </li>
+        <li class="forum-thread">
+          <div class="thread-icon">✍️</div>
+          <div class="thread-body">
+            <div class="thread-tag">Writers' Corner</div>
+            <h4>How do you write in Malayalam while living outside Kerala? The diaspora author's dilemma</h4>
+            <p>Started by Meena V. · 5 days ago</p>
+          </div>
+          <div class="thread-stats">
+            <span>31 replies</span>
+            <span style="color:var(--sage);">New</span>
+          </div>
+        </li>
+        <li class="forum-thread">
+          <div class="thread-icon">📖</div>
+          <div class="thread-body">
+            <div class="thread-tag">Reviews</div>
+            <h4>Indian novels in translation — what's lost, what's found when crossing languages?</h4>
+            <p>Started by Rajan K. · 2 weeks ago</p>
+          </div>
+          <div class="thread-stats">
+            <span>17 replies</span>
+          </div>
+        </li>
+        <li class="forum-thread">
+          <div class="thread-icon">🎭</div>
+          <div class="thread-body">
+            <div class="thread-tag">Malayalam Poetry</div>
+            <h4>Sugathakumari vs the new generation — does form still matter in Malayalam poetry?</h4>
+            <p>Started by Priya M. · Yesterday</p>
+          </div>
+          <div class="thread-stats">
+            <span>9 replies</span>
+            <span style="color:var(--sage);">New</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-        function updateCounter() {
-            document.getElementById('sceneCounter').textContent = `${currentScene} / ${totalScenes}`;
-        }
+    <!-- Events sidebar -->
+    <div class="events-sidebar">
+      <h3>Upcoming <em>Events</em></h3>
+      <div class="event-item">
+        <div class="event-date"><strong>01</strong>MAR</div>
+        <div class="event-info">
+          <h4>M.T. Vasudevan Nair Reading Circle</h4>
+          <p>Monthly discussion · Online · Free entry</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><strong>08</strong>MAR</div>
+        <div class="event-info">
+          <h4>Women Writers of Kerala — A Centenary Conversation</h4>
+          <p>Panel Discussion · Kochi &amp; Livestream</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><strong>15</strong>MAR</div>
+        <div class="event-info">
+          <h4>New Writers Open Mic</h4>
+          <p>Submit your prose or poetry · Deadline Mar 10</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><strong>22</strong>MAR</div>
+        <div class="event-info">
+          <h4>World Literature Book Club: Latin American Edition</h4>
+          <p>Online · All readers welcome</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><strong>05</strong>APR</div>
+        <div class="event-info">
+          <h4>Yellow Feather Annual Literary Awards</h4>
+          <p>Nominations open · Readers vote</p>
+        </div>
+      </div>
+      <div style="margin-top:24px;">
+        <a href="#" class="btn-gold" style="display:block;text-align:center;padding:14px;">View All Events →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function restart() {
-            currentScene = 1;
-            showScene(1);
-            bgMusic.currentTime = 0;
-            bgMusic.play().catch(e => console.log('Audio playback:', e));
-            if (!isPlaying) {
-                togglePlay();
-            }
-        }
+<!-- WRITER'S CORNER -->
+<section class="section writer-section" id="writers">
+  <div class="section-header">
+    <h2>Writers' <em>Corner</em></h2>
+    <a href="#" class="section-link">See Published Submissions →</a>
+  </div>
+  <div class="writer-layout">
+    <div class="writer-visual">
+      <h3>"Every great reader is a writer waiting to speak."</h3>
+      <p>Yellow Feather Books is more than a store — it is a living literary space. We invite writers, reviewers, and readers to contribute to our growing portal. Your voice matters.</p>
+      <ul class="writer-perks">
+        <li>Share book reviews and reading reflections</li>
+        <li>Submit short fiction or poetry for publication</li>
+        <li>Announce your own published work to our community</li>
+        <li>Engage with editors and fellow writers</li>
+        <li>Get featured in our curated monthly digest</li>
+      </ul>
+    </div>
 
-        function togglePlay() {
-            const btn = document.getElementById('playBtn');
-            if (isPlaying) {
-                clearInterval(interval);
-                btn.textContent = '▶ PLAY';
-                isPlaying = false;
-            } else {
-                interval = setInterval(nextScene, sceneDuration);
-                btn.textContent = '⏸ PAUSE';
-                isPlaying = true;
-            }
-        }
+    <div class="writer-form-side">
+      <h3>Submit Your Writing</h3>
+      <p>Reviews, essays, stories, poetry — all are welcome. Our editorial team reviews every submission.</p>
 
-        function toggleSound() {
-            const btn = document.getElementById('soundToggle');
-            if (isMuted) {
-                bgMusic.muted = false;
-                btn.textContent = '🔊';
-                isMuted = false;
-            } else {
-                bgMusic.muted = true;
-                btn.textContent = '🔇';
-                isMuted = true;
-            }
-        }
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+      </div>
 
-        window.addEventListener('load', async () => {
-            try {
-                const imageUrls = [
-                    'image1.png',
-                    'image2.png',
-                    'image3.png',
-                    'image4.png',
-                    'image5.png',
-                    'image6.jpg'
-                ];
-                
-                for (let i = 0; i < imageUrls.length; i++) {
-                    const img = document.getElementById(`img${i + 1}`);
-                    img.src = imageUrls[i];
-                }
-            } catch (error) {
-                console.log('Images will load from local files');
-            }
-        });
+      <div class="form-group">
+        <label>Submission Type</label>
+        <select>
+          <option value="">Select type...</option>
+          <option>Book Review</option>
+          <option>Short Story</option>
+          <option>Poetry</option>
+          <option>Literary Essay</option>
+          <option>New Book Announcement</option>
+          <option>Author Interview</option>
+        </select>
+      </div>
 
-        interval = setInterval(nextScene, sceneDuration);
-        updateProgress();
-        updateCounter();
-        
-        bgMusic.play().catch(e => {
-            console.log('Click to start music');
-        });
-    </script>
+      <div class="form-group">
+        <label>Title / Book Being Reviewed</label>
+        <input type="text" placeholder="Title of your piece or book reviewed">
+      </div>
+
+      <div class="form-group">
+        <label>Your Submission or Message</label>
+        <textarea placeholder="Paste your writing here, or tell us what you'd like to submit..."></textarea>
+      </div>
+
+      <button class="btn-submit" onclick="alert('Thank you! Our editorial team will review your submission and get back to you within 5 working days.')">
+        Submit to Yellow Feather →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-eyebrow">📬 Stay in the Story</div>
+  <h2>The Yellow Feather<br><em>Weekly Digest</em></h2>
+  <p>New arrivals, literary trends, event invitations, and curated reading picks — delivered to your inbox every Thursday.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Your email address...">
+    <button>Subscribe</button>
+  </div>
+  <div class="newsletter-note">No spam. Unsubscribe anytime. Read gently, dream deeply.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="/mnt/user-data/uploads/GOLD-min.png" alt="Yellow Feather Books" onerror="this.style.display='none'">
+      <p>Yellow Feather Books is a Malayalam literature portal and online bookstore — dedicated to the joy of reading, the power of stories, and the beauty of Kerala's literary heritage.</p>
+      <div class="footer-social">
+        <div class="social-btn">𝕏</div>
+        <div class="social-btn">📸</div>
+        <div class="social-btn">📘</div>
+        <div class="social-btn">▶</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Literary Trends</li>
+        <li>New Arrivals</li>
+        <li>Best Sellers</li>
+        <li>Award Winners</li>
+        <li>World Literature</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul>
+        <li>Discussion Forums</li>
+        <li>Book Clubs</li>
+        <li>Events Calendar</li>
+        <li>Writers' Corner</li>
+        <li>Submit a Review</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Yellow Feather</h4>
+      <ul>
+        <li><a href="https://yellowfeatherbookstore.in" target="_blank" style="color:var(--gold-lt);">🛒 Visit Our Store</a></li>
+        <li>About Us</li>
+        <li>Contact</li>
+        <li>Advertise</li>
+        <li>Privacy Policy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Yellow Feather Books · Kerala, India · All rights reserved</p>
+    <p>Read gently. Dream deeply. Let your soul grow wings. 🪶</p>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Intersection observer for fade-up elements not already animated
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.trend-card, .review-card, .arrival-item, .forum-thread, .event-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// Newsletter form
+document.querySelector('.newsletter-form button').addEventListener('click', () => {
+  const input = document.querySelector('.newsletter-form input');
+  if (input.value && input.value.includes('@')) {
+    input.value = '';
+    document.querySelector('.newsletter-note').textContent = '✓ You\'re subscribed! First digest arrives Thursday.';
+    document.querySelector('.newsletter-note').style.color = 'rgba(200,230,200,0.8)';
+  } else {
+    input.style.borderColor = '#a03820';
+    input.placeholder = 'Please enter a valid email...';
+  }
+});
+</script>
+
 </body>
 </html>
