@@ -214,6 +214,9 @@ nav {
   flex: 1;
   padding: 40px 36px;
   border-bottom: 1px solid var(--rule);
+
+  max-height: 520px;
+  overflow-y: auto;
 }
 .sidebar-label {
   font-family: var(--mono);
@@ -235,6 +238,8 @@ nav {
 }
 .trending-list li:last-child { border-bottom: none; }
 .trending-list li:hover { opacity: 0.7; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
 .trending-num {
   font-family: var(--mono);
   font-size: 13px;
@@ -928,19 +933,29 @@ footer {
 <!-- TOPBAR TICKER -->
 <div class="topbar">
   <span class="topbar-ticker">
-    ✦ NEW ARRIVAL: Alikhitha — Now Available
+    ✦ NEW TODAY: Gopan Ambatt — 'പോക്കുവെയിലിലെ കരിമേഘങ്ങൾ' — Manorama Online, March 3, 2026
     <span class="ticker-dot">◆</span>
-    Kerala Sahitya Akademi Award Shortlist 2024 Announced
+    BREAKING: International Booker Prize 2026 Longlist — 13 books, 11 languages · Shortlist March 31
     <span class="ticker-dot">◆</span>
-    Read Gently, Dream Deeply — Let Your Soul Grow Wings
+    Manorama Lit: Maya Vandana Pulikottil — 'വിരൽപ്പാട്' — New Malayalam Short Story, March 2, 2026
     <span class="ticker-dot">◆</span>
-    Free Delivery on Orders Above ₹500
+    Manorama Lit: Krishnapriya Prakash — കവിത 'വേരുകൾ' (Roots) — March 1, 2026
     <span class="ticker-dot">◆</span>
-    NEW: Submit Your Book Review — Get Featured
+    Manorama Lit: Rohini Sreeraj — 'പുടവ' — New Malayalam Poem, March 2, 2026
     <span class="ticker-dot">◆</span>
-    M.T. Vasudevan Nair Memorial Reading Circle — Join Now
+    AWARD: Indiwood Bhasha Sahitya Puraskaram 2025 — Sreekumaran Thampi receives Bhasha Kesari honour
     <span class="ticker-dot">◆</span>
-    World Literature Week: 50+ International Titles Now In Stock
+    Nishobh Othayoth — 'ഋതുക്കൾ സാക്ഷി' — Short Story · Manorama Online, Feb 24, 2026
+    <span class="ticker-dot">◆</span>
+    S. Hareesh's August 17 in English translation by Jayasree Kalathil — 2026's most awaited Malayalam novel
+    <span class="ticker-dot">◆</span>
+    Sahitya Akademi Festival of Letters — New Delhi, March 30–April 4, 2026
+    <span class="ticker-dot">◆</span>
+    മാതൃഭൂമി ആഴ്ചപ്പതിപ്പ് Issue 406 — Feb 2026 — Read the current issue at digital.mathrubhumi.com
+    <span class="ticker-dot">◆</span>
+    DC Ink: Malayalam literature, poetry &amp; book reviews updated daily — dcink.in
+    <span class="ticker-dot">◆</span>
+    Free Delivery on Orders Above ₹500 · yellowfeatherbookstore.in
   </span>
 </div>
 
@@ -955,6 +970,8 @@ footer {
   </div>
   <ul class="nav-links">
     <li><a href="#trends">Trends</a></li>
+    <li><a href="#sahithyam">സാഹിത്യം</a></li>
+    <li><a href="#videos">▶ Videos</a></li>
     <li><a href="#arrivals">New Arrivals</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#community">Community</a></li>
@@ -966,58 +983,31 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-main">
-    <div class="hero-tag fade-up">Editor's Pick · February 2026</div>
-    <div class="hero-eyebrow fade-up delay-1">Featured Essay · <span>Malayalam Literature</span></div>
-    <h1 class="hero-title fade-up delay-2">The Soul<br>that <em>Speaks</em><br>in Rivers</h1>
-    <p class="hero-excerpt fade-up delay-3">How the backwaters of Kerala shaped a century of literary imagination — from Thakazhi's fishermen to the neo-urban novelists rewriting what it means to be Malayali in a fragmented world.</p>
+    <div class="hero-tag fade-up">Editor's Pick · March 2026</div>
+    <div class="hero-eyebrow fade-up delay-1">Featured · <span>Kerala to the World</span></div>
+    <h1 class="hero-title fade-up delay-2">Arundhati Roy's<br><em>Mother Mary</em> — A Kerala Story the World is Reading</h1>
+    <p class="hero-excerpt fade-up delay-3">Arundhati Roy's memoir <em>Mother Mary Comes to Me</em> — named NYT's Best Books of 2025 and winner of the Mathrubhumi Book of the Year 2026 — is a searing account of the author's childhood in Kerala, her complex bond with her mother Mary Roy, and the making of <em>The God of Small Things</em>. With reviews in the Guardian, New Yorker, Financial Times and more, this Kerala-rooted book is the most discussed Indian literary work of the season. Meanwhile the International Booker 2026 shortlist drops on March 31, with 13 global novels jostling for the world's most influential translated fiction prize.</p>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:28px;" class="fade-up delay-4">
-      <a href="#" class="btn-read">
-        Read Essay
+      <a href="https://en.wikipedia.org/wiki/Mother_Mary_Comes_to_Me" target="_blank" class="btn-read">
+        Read About the Book
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="https://yellowfeatherbookstore.in" target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rule);padding-bottom:2px;">Browse Books →</a>
+      <a href="https://yellowfeatherbookstore.in/collections/trending" target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--rule);padding-bottom:2px;">Shop Kerala Books →</a>
     </div>
-    <div class="hero-meta fade-up delay-4">By Editorial Team &nbsp;·&nbsp; 8 min read &nbsp;·&nbsp; 247 readers today</div>
+    <div class="hero-meta fade-up delay-4">Mathrubhumi Book of the Year 2026 &nbsp;·&nbsp; NYT Best Books 2025 &nbsp;·&nbsp; Kerala Literature</div>
   </div>
-
-  <aside class="hero-sidebar">
+    <aside class="hero-sidebar">
     <div class="hero-sidebar-top">
-      <div class="sidebar-label">🔥 Trending This Week</div>
-      <ul class="trending-list">
-        <li>
-          <span class="trending-num">01</span>
-          <div>
-            <div class="trending-title">Chittilasseriyile Choolamvilikkar</div>
-            <div class="trending-author">Historical Fiction · Bestseller</div>
-          </div>
-        </li>
-        <li>
-          <span class="trending-num">02</span>
-          <div>
-            <div class="trending-title">Alikhitha</div>
-            <div class="trending-author">Contemporary · New Release</div>
-          </div>
-        </li>
-        <li>
-          <span class="trending-num">03</span>
-          <div>
-            <div class="trending-title">Pinnakkidi Mottaso</div>
-            <div class="trending-author">Short Stories · Award Shortlist</div>
-          </div>
-        </li>
-        <li>
-          <span class="trending-num">04</span>
-          <div>
-            <div class="trending-title">Bougainvilleakal Pookkumbol</div>
-            <div class="trending-author">Poetry · Readers' Favourite</div>
-          </div>
-        </li>
-        <li>
-          <span class="trending-num">05</span>
-          <div>
-            <div class="trending-title">Aarum Kaanatha Yudhangal</div>
-            <div class="trending-author">War Literature · Powerful Narrative</div>
-          </div>
+      <div class="sidebar-label" style="display:flex;align-items:center;justify-content:space-between;">
+        <span>🔥 Trending This Week</span>
+        <a href="https://yellowfeatherbookstore.in/collections/trending" target="_blank" rel="noopener"
+           style="font-size:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:0.05em;">
+          View All →
+        </a>
+      </div>
+      <ul class="trending-list" id="live-trending-list">
+        <li style="padding:18px 0;font-style:italic;color:var(--ink-lt);font-size:13px;text-align:center;">
+          <span style="display:inline-block;animation:spin 1s linear infinite;margin-right:6px;">⟳</span> Loading latest books…
         </li>
       </ul>
     </div>
@@ -1030,103 +1020,986 @@ footer {
 
 <!-- DATE STRIP -->
 <div class="date-strip">
-  <div class="date-strip-item">📅 <strong>Feb 24, 2026</strong></div>
-  <div class="date-strip-item">📚 <strong>847</strong> Books in Collection</div>
-  <div class="date-strip-item">✍️ <strong>12</strong> New Reviews This Week</div>
-  <div class="date-strip-item">🌍 <strong>World Literature</strong> Week Ongoing</div>
-  <div class="date-strip-item">🎉 <strong>March 1</strong> — Reading Circle Event</div>
+  <div class="date-strip-item">📅 <strong>March 3, 2026</strong></div>
+  <div class="date-strip-item">🏆 Int'l Booker 2026 — <strong>Shortlist: March 31</strong></div>
+  <div class="date-strip-item">📝 Gopan Ambatt — <strong>'പോക്കുവെയിലിലെ കരിമേഘങ്ങൾ'</strong> — New Today</div>
+  <div class="date-strip-item">🥇 Indiwood Puraskaram — <strong>Sreekumaran Thampi</strong> Honoured</div>
+  <div class="date-strip-item">🌿 Manorama · DC Ink · Truecopy — <strong>Updated Daily</strong></div>
 </div>
 
 <!-- LITERARY TRENDS -->
 <section class="section" id="trends">
   <div class="section-header">
     <h2>Literary <em>Trends</em></h2>
-    <a href="#" class="section-link">View All Columns →</a>
+    <a href="https://truecopythink.media/literature" target="_blank" class="section-link">More Columns →</a>
   </div>
   <div class="trends-grid">
-    <div class="trend-card">
+
+    <!-- Card 1: International Booker Prize 2026 — World, English -->
+    <a href="https://thebookerprizes.com/the-booker-library/features/everything-you-need-to-know-about-the-international-booker-prize-2026-longlist"
+       target="_blank" rel="noopener" class="trend-card" style="text-decoration:none;color:inherit;display:block;">
       <div class="trend-card-region">🌍 World Literature</div>
-      <h3>The Return of the Village Novel: Rural Voices in Global Fiction</h3>
-      <p>From Knausgård's Norwegian countryside to Ngugi's Kenyan landscapes, literary fiction is turning its gaze back to the village — and finding the universal in the hyperlocal.</p>
-      <div class="trend-card-footer">Analysis · 6 min read</div>
-    </div>
-    <div class="trend-card">
+      <h3>International Booker 2026 Longlist: 13 Novels, 11 Languages — Shortlist on March 31</h3>
+      <p>Three debuts, five returning author-translator pairings, books banned in Iran, and characters from a queer Argentinian conquistador to a Danish woman accused of sorcery — the 2026 longlist marks the prize's 10th anniversary. Shortlist on March 31. Winner at Tate Modern, London, on May 19.</p>
+      <div class="trend-card-footer" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>The Booker Prizes · Feb 24, 2026</span><span style="color:var(--gold);">Read More →</span>
+      </div>
+    </a>
+
+    <!-- Card 2: Arundhati Roy / Mathrubhumi — Indian, English+Malayalam -->
+    <a href="https://theprint.in/india/arundhati-roy-wins-mathrubhumi-book-of-the-year-award-2026/2839122/"
+       target="_blank" rel="noopener" class="trend-card" style="text-decoration:none;color:inherit;display:block;">
       <div class="trend-card-region">🇮🇳 Indian Literature</div>
-      <h3>Dalit Voices and the Rewriting of the Indian Novel's Canon</h3>
-      <p>A new generation of Dalit writers in Malayalam, Tamil, and Marathi are dismantling the upper-caste gaze that long dominated Indian literary imagination.</p>
-      <div class="trend-card-footer">Essay · 8 min read</div>
-    </div>
-    <div class="trend-card">
+      <h3>Arundhati Roy Wins Mathrubhumi Book of the Year 2026 for 'Mother Mary Comes to Me'</h3>
+      <p>Kerala's Mathrubhumi honoured Roy's memoir — rooted in Ayemenem, Kerala — as its Book of the Year at MBIFL 2026 in Thiruvananthapuram. The book traces Roy's childhood, her relationship with her activist mother Mary Roy, and the origins of <em>The God of Small Things</em>. Named a NYT Best Book of 2025.</p>
+      <div class="trend-card-footer" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>PTI / The Print · Jan 28, 2026</span><span style="color:var(--gold);">Read More →</span>
+      </div>
+    </a>
+
+    <!-- Card 3: MDLF / Kerala digital lit — Malayalam -->
+    <a href="https://www.tribuneindia.com/news/advertorial-disclaimer/historic-launch-asias-first-largest-digital-e-literature-festival-mdlf-begins-from-kerala"
+       target="_blank" rel="noopener" class="trend-card" style="text-decoration:none;color:inherit;display:block;">
       <div class="trend-card-region">🌿 Malayalam Letters</div>
-      <h3>Young Narrators, Old Memories: The New Wave of Kerala Short Fiction</h3>
-      <p>Under-35 Malayalam writers are blending Instagram-era brevity with the richness of Nair-era lyricism — creating a new language that feels both ancient and electric.</p>
-      <div class="trend-card-footer">Spotlight · 5 min read</div>
+      <h3>MDLF 2026: Kerala Launches Asia's First Fully Digital Literature Festival — 1 Lakh+ Viewers</h3>
+      <p>The Madism Digital Literature Festival (Feb 26–Mar 1) broke records as Asia's first fully digital e-literature festival, streaming 40+ sessions with Benyamin, T. D. Ramakrishnan, V. J. James, and Kalpetta Narayanan to over one lakh live viewers worldwide. A new era for borderless Malayalam literary discourse.</p>
+      <div class="trend-card-footer" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Tribune India · Feb 27, 2026</span><span style="color:var(--gold);">Read More →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Also Reading bar -->
+  <div style="margin-top:32px;padding:20px 0;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+    <span style="font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-lt);">Also Reading:</span>
+    <a href="https://www.manoramaonline.com/literature/your-creatives.html" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">Manorama — New Stories & Poems →</a>
+    <a href="https://dcink.in/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">DC Ink — Daily Malayalam Lit →</a>
+    <a href="https://lithub.com/heres-the-longlist-for-the-2026-international-booker-prize/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">Lit Hub · Booker 2026 →</a>
+    <a href="https://webzine.truecopy.media/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">Truecopy Webzine →</a>
+    <a href="https://www.madhyamam.com/literature" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">Madhyamam Literature →</a>
+    <a href="https://sahitya-akademi.gov.in/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--rule);padding:6px 14px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--parchment)'" onmouseout="this.style.background='transparent'">Sahitya Akademi · Mar 30–Apr 4 →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     മലയാളം സാഹിത്യം — DC Ink-style editorial magazine section
+     Sections: കഥ · കവിത · ലേഖനം · നിരൂപണം · അഭിമുഖം · കല · സംസ്കാരം
+════════════════════════════════════════════════════════════ -->
+<style>
+/* ── Malayalam Sahithyam Portal ───────────────────────── */
+#sahithyam { background: #faf7f2; }
+
+/* Masthead */
+.mls-head {
+  background: var(--ink);
+  display: flex; align-items: stretch; justify-content: space-between;
+  padding: 0 80px; border-bottom: 3px solid var(--gold);
+}
+.mls-brand { padding: 24px 40px 24px 0; border-right: 1px solid rgba(255,255,255,0.08); margin-right: 0; }
+.mls-brand-eye { font-family:var(--mono); font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.mls-brand h2 { font-family:var(--serif); font-size:30px; font-weight:700; color:var(--cream); line-height:1; letter-spacing:-0.01em; }
+.mls-brand p { font-family:var(--mono); font-size:9px; color:rgba(255,255,255,0.3); letter-spacing:2px; margin-top:4px; }
+
+/* Category tabs */
+.mls-tabs { display:flex; align-items:stretch; flex:1; overflow-x:auto; }
+.mls-tab {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:0 22px; border-right:1px solid rgba(255,255,255,0.07);
+  text-decoration:none; transition:background 0.2s; min-width:72px; flex-shrink:0;
+}
+.mls-tab:hover { background:rgba(200,144,32,0.14); }
+.mls-tab.active { background:var(--gold); }
+.mls-tab-ml { font-family:var(--serif); font-size:16px; font-weight:600; color:var(--cream); line-height:1; }
+.mls-tab-en { font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:4px; }
+.mls-tab.active .mls-tab-ml, .mls-tab.active .mls-tab-en { color:var(--ink); }
+
+/* Date strip */
+.mls-date {
+  background:var(--ink); padding:8px 80px;
+  display:flex; align-items:center; gap:14px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.mls-date span { font-family:var(--mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.22); }
+.mls-dot { width:3px; height:3px; background:var(--gold); border-radius:50%; flex-shrink:0; }
+
+/* Body wrapper */
+.mls-body { padding: 0 80px; }
+
+/* Featured + sidebar row */
+.mls-top { display:grid; grid-template-columns:1fr 300px; border-bottom:1px solid var(--rule); }
+
+/* Featured article */
+.mls-feat { padding:44px 44px 44px 0; border-right:1px solid var(--rule); }
+.mls-feat-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--mono); font-size:8px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--cream); background:var(--rust); padding:4px 10px; margin-bottom:18px;
+}
+.mls-feat h3 { font-family:var(--serif); font-size:36px; font-weight:700; line-height:1.15; color:var(--ink); margin-bottom:4px; }
+.mls-feat-sub { font-family:var(--serif); font-size:17px; color:var(--ink-lt); font-style:italic; line-height:1.4; margin-bottom:16px; }
+.mls-byline {
+  display:flex; align-items:center; gap:12px;
+  padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-bottom:20px;
+}
+.mls-avatar {
+  width:34px; height:34px; border-radius:50%; background:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:15px; font-weight:700; color:var(--ink); flex-shrink:0;
+}
+.mls-byline-info { font-family:var(--mono); font-size:10px; }
+.mls-byline-info b { color:var(--ink); display:block; margin-bottom:2px; }
+.mls-byline-info span { color:var(--ink-lt); }
+.mls-feat-body { font-family:var(--body); font-size:17.5px; line-height:1.85; color:var(--ink-mid); margin-bottom:16px; }
+.mls-feat-ml {
+  font-size:16px; line-height:2; color:#4a3828; margin-bottom:24px;
+  padding-left:16px; border-left:3px solid var(--gold);
+}
+.mls-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--mono); font-size:9px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--ink); background:var(--gold); padding:10px 20px;
+  text-decoration:none; transition:opacity 0.2s;
+}
+.mls-btn:hover { opacity:0.82; }
+
+/* Sidebar */
+.mls-sidebar { padding:44px 0 44px 28px; }
+.mls-sidebar-hd {
+  font-family:var(--mono); font-size:8px; letter-spacing:4px; text-transform:uppercase; color:var(--ink-lt);
+  padding-bottom:10px; border-bottom:2px solid var(--ink);
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:0;
+}
+.mls-sidebar-hd span:last-child { color:var(--gold); }
+.mls-si {
+  display:block; padding:14px 0; border-bottom:1px solid var(--rule);
+  text-decoration:none; color:inherit; transition:opacity 0.15s; position:relative;
+}
+.mls-si:hover { opacity:0.68; }
+.mls-si:last-child { border-bottom:none; }
+.mls-si-n { font-family:var(--serif); font-size:26px; font-weight:700; color:var(--rule); float:right; margin-left:10px; line-height:1; }
+.mls-si-cat { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+.mls-si-title { font-family:var(--serif); font-size:15px; font-weight:600; line-height:1.3; color:var(--ink); margin-bottom:3px; }
+.mls-si-meta { font-family:var(--mono); font-size:9px; color:var(--ink-lt); }
+.mls-new { display:inline-block; background:var(--rust); color:#fff; font-family:var(--mono); font-size:6.5px; letter-spacing:2px; text-transform:uppercase; padding:2px 5px; margin-left:5px; vertical-align:middle; }
+
+/* Section heading divider */
+.mls-sec-hd {
+  display:flex; align-items:center; gap:16px; padding:24px 0 0;
+}
+.mls-sec-hd h4 { font-family:var(--mono); font-size:8px; letter-spacing:4px; text-transform:uppercase; color:var(--ink-lt); white-space:nowrap; }
+.mls-sec-hd::after { content:''; flex:1; height:1px; background:var(--rule); }
+
+/* 3-column category grid */
+.mls-3col { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--rule); }
+.mls-col { padding:28px 28px 28px 0; border-right:1px solid var(--rule); }
+.mls-col:last-child { border-right:none; padding-right:0; }
+.mls-col:not(:first-child) { padding-left:28px; }
+.mls-col-hd { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; padding-bottom:10px; border-bottom:2px solid var(--ink); }
+.mls-col-name { font-family:var(--serif); font-size:22px; font-weight:700; color:var(--ink); }
+.mls-col-name small { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--ink-lt); display:block; margin-bottom:1px; }
+.mls-col-more { font-family:var(--mono); font-size:8px; letter-spacing:1px; color:var(--gold); text-decoration:none; text-transform:uppercase; white-space:nowrap; }
+.mls-art { display:block; padding:12px 0; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; transition:opacity 0.15s; }
+.mls-art:last-child { border-bottom:none; }
+.mls-art:hover { opacity:0.7; }
+.mls-art-cat { font-family:var(--mono); font-size:7px; letter-spacing:2px; text-transform:uppercase; color:var(--rust); margin-bottom:5px; }
+.mls-art h5 { font-family:var(--serif); font-size:15.5px; font-weight:600; line-height:1.3; color:var(--ink); margin-bottom:4px; transition:color 0.2s; }
+.mls-art:hover h5 { color:var(--gold-dk); }
+.mls-art-snip { font-size:12.5px; color:var(--ink-lt); line-height:1.5; margin-bottom:4px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.mls-art-by { font-family:var(--mono); font-size:9px; color:var(--gold-dk); }
+
+/* Pull-quote band */
+.mls-pq { background:var(--parchment); padding:36px 80px; display:flex; gap:0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.mls-pq-item { flex:1; padding:0 40px; border-right:1px solid var(--rule); }
+.mls-pq-item:first-child { padding-left:0; }
+.mls-pq-item:last-child { border-right:none; padding-right:0; }
+.mls-pq-src { font-family:var(--mono); font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dk); margin-bottom:10px; }
+.mls-pq-q { font-family:var(--serif); font-size:18px; font-style:italic; color:var(--ink); line-height:1.6; margin-bottom:10px; }
+.mls-pq-q::before { content:'\201C'; color:var(--gold); font-size:28px; line-height:0; vertical-align:-8px; margin-right:2px; }
+.mls-pq-who { font-family:var(--mono); font-size:9px; color:var(--ink-lt); }
+
+/* Author spotlight row */
+.mls-authors { display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--rule); }
+.mls-author {
+  display:block; text-decoration:none; color:inherit;
+  padding:24px 20px; border-right:1px solid var(--rule); text-align:center; transition:background 0.2s;
+}
+.mls-author:last-child { border-right:none; }
+.mls-author:hover { background:var(--parchment); }
+.mls-author-init { width:52px; height:52px; border-radius:50%; background:var(--ink); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:20px; font-weight:700; color:var(--gold); margin:0 auto 10px; }
+.mls-author-ml { font-family:var(--serif); font-size:14px; font-weight:600; color:var(--ink); margin-bottom:2px; line-height:1.3; }
+.mls-author-en { font-family:var(--mono); font-size:8.5px; color:var(--ink-lt); letter-spacing:1px; }
+.mls-author-genre { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-top:6px; }
+
+/* CTA band */
+.mls-cta { background:var(--ink); padding:32px 80px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; border-bottom:3px solid var(--gold); }
+.mls-cta-eye { font-family:var(--mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.mls-cta h3 { font-family:var(--serif); font-size:24px; color:var(--cream); font-weight:700; }
+.mls-cta p { font-family:var(--mono); font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.5px; margin-top:4px; }
+.mls-cta-btn { font-family:var(--mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; background:var(--gold); color:var(--ink); padding:13px 28px; text-decoration:none; white-space:nowrap; transition:background 0.2s; flex-shrink:0; }
+.mls-cta-btn:hover { background:var(--gold-lt); }
+
+/* Responsive */
+@media(max-width:1100px){
+  .mls-head,.mls-date,.mls-body,.mls-pq,.mls-cta{ padding-left:32px; padding-right:32px; }
+  .mls-3col{ grid-template-columns:1fr 1fr; }
+  .mls-authors{ grid-template-columns:repeat(3,1fr); }
+}
+@media(max-width:768px){
+  .mls-head{ flex-direction:column; padding:16px; }
+  .mls-brand{ border-right:none; padding:0 0 14px; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .mls-date,.mls-body,.mls-pq,.mls-cta{ padding-left:16px; padding-right:16px; }
+  .mls-top{ grid-template-columns:1fr; }
+  .mls-feat{ padding:28px 0; border-right:none; border-bottom:1px solid var(--rule); }
+  .mls-sidebar{ padding:24px 0 0; }
+  .mls-3col{ grid-template-columns:1fr; }
+  .mls-col{ border-right:none; padding:22px 0; }
+  .mls-col:not(:first-child){ padding-left:0; }
+  .mls-pq{ flex-direction:column; }
+  .mls-pq-item{ padding:20px 0; border-right:none; border-bottom:1px solid var(--rule); }
+  .mls-pq-item:last-child{ border-bottom:none; }
+  .mls-authors{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ─── VIDEO SECTION ─── */
+.vid-section {
+  background: var(--ink);
+  border-bottom: 3px solid var(--gold);
+}
+.vid-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 80px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.vid-brand {
+  display: flex; align-items: baseline; gap: 14px;
+}
+.vid-brand-eye {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); border-right: 1px solid rgba(200,144,32,0.3); padding-right: 14px;
+}
+.vid-brand h2 {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--parchment); letter-spacing: -0.3px;
+}
+.vid-brand h2 em { font-style: italic; color: var(--gold-lt); }
+.vid-tabs {
+  display: flex; gap: 4px;
+}
+.vid-tab {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(242,234,216,0.4);
+  padding: 10px 16px; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.vid-tab:hover { color: var(--gold-lt); }
+.vid-tab.active { color: var(--gold-lt); border-bottom-color: var(--gold); }
+
+/* Main grid: featured player + playlist */
+.vid-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  padding: 0 80px 40px;
+}
+.vid-main { padding: 32px 32px 0 0; border-right: 1px solid rgba(255,255,255,0.06); }
+
+/* Player wrapper — 16:9 */
+.vid-player-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #0a0806;
+  overflow: hidden;
+  cursor: pointer;
+}
+.vid-player-wrap iframe,
+.vid-player-wrap video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+/* Placeholder state — shown when no src yet */
+.vid-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+  background: linear-gradient(160deg, #1c1610 0%, #0e0b08 100%);
+  border: 1px solid rgba(200,144,32,0.12);
+}
+.vid-placeholder-icon {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 0 0 12px rgba(200,144,32,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.vid-placeholder:hover .vid-placeholder-icon {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 18px rgba(200,144,32,0.10);
+}
+.vid-placeholder p {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(242,234,216,0.35);
+}
+/* Caption below player */
+.vid-caption {
+  padding: 18px 0 0;
+}
+.vid-caption-tag {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  background: rgba(200,144,32,0.12); display: inline-block;
+  padding: 3px 10px; margin-bottom: 10px;
+}
+.vid-caption h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  color: var(--parchment); line-height: 1.25; margin-bottom: 6px;
+}
+.vid-caption-meta {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  color: rgba(242,234,216,0.35); text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+}
+.vid-caption-meta span { color: rgba(242,234,216,0.55); }
+
+/* Playlist sidebar */
+.vid-playlist { padding: 32px 0 0 28px; }
+.vid-playlist-hd {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(242,234,216,0.3);
+  padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between;
+  margin-bottom: 4px;
+}
+.vid-playlist-hd span:last-child { color: var(--gold); }
+.vid-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer; transition: opacity 0.2s;
+  text-decoration: none; color: inherit;
+}
+.vid-item:last-child { border-bottom: none; }
+.vid-item:hover { opacity: 0.72; }
+.vid-item.active { opacity: 1; }
+.vid-thumb {
+  width: 82px; height: 52px; flex-shrink: 0;
+  background: #1a1410;
+  border: 1px solid rgba(200,144,32,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; position: relative; overflow: hidden;
+}
+.vid-thumb-play {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.45);
+}
+.vid-thumb-play::after {
+  content: '▶';
+  color: var(--gold);
+  font-size: 13px;
+  margin-left: 2px;
+}
+.vid-item-info { flex: 1; min-width: 0; }
+.vid-item-cat {
+  font-family: var(--mono); font-size: 7px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+}
+.vid-item-title {
+  font-family: var(--serif); font-size: 13.5px; font-weight: 600;
+  color: var(--parchment); line-height: 1.3; margin-bottom: 3px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.vid-item.active .vid-item-title { color: var(--gold-lt); }
+.vid-item-meta {
+  font-family: var(--mono); font-size: 8px;
+  color: rgba(242,234,216,0.3);
+}
+/* Add video CTA */
+.vid-add {
+  margin-top: 18px; padding: 14px 16px;
+  border: 1px dashed rgba(200,144,32,0.25);
+  display: flex; align-items: center; gap: 12px;
+  cursor: pointer; transition: border-color 0.2s, background 0.2s;
+}
+.vid-add:hover { border-color: var(--gold); background: rgba(200,144,32,0.05); }
+.vid-add-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(200,144,32,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.vid-add-text { font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(242,234,216,0.4); line-height: 1.5; }
+.vid-add-text b { display: block; color: var(--gold-lt); margin-bottom: 2px; }
+
+/* Bottom categories strip */
+.vid-cats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin: 0 80px;
+}
+.vid-cat {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer; transition: background 0.2s;
+  text-decoration: none; color: inherit;
+}
+.vid-cat:last-child { border-right: none; }
+.vid-cat:hover { background: rgba(200,144,32,0.06); }
+.vid-cat-icon { font-size: 22px; margin-bottom: 8px; }
+.vid-cat-label {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 3px;
+}
+.vid-cat-count {
+  font-family: var(--serif); font-size: 13px;
+  color: rgba(242,234,216,0.4);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .vid-head, .vid-cats { padding-left: 32px; padding-right: 32px; }
+  .vid-body { padding: 0 32px 32px; }
+}
+@media (max-width: 768px) {
+  .vid-head { padding: 16px; flex-direction: column; align-items: flex-start; }
+  .vid-body { grid-template-columns: 1fr; padding: 16px; }
+  .vid-main { padding: 0 0 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .vid-playlist { padding: 24px 0 0; }
+  .vid-cats { grid-template-columns: repeat(2,1fr); margin: 0; padding: 0 16px; }
+}
+</style>
+
+<!-- MALAYALAM SAHITHYAM — DC Ink-style literary section -->
+<section id="sahithyam">
+
+  <!-- Masthead with category tabs -->
+  <div class="mls-head">
+    <div class="mls-brand">
+      <div class="mls-brand-eye">Yellow Feather Books</div>
+      <h2>മലയാളം സാഹിത്യം</h2>
+      <p>Malayalam Sahithyam · Literary Magazine</p>
+    </div>
+    <nav class="mls-tabs">
+      <a href="https://www.madhyamam.com/literature" target="_blank" class="mls-tab active">
+        <span class="mls-tab-ml">കഥ</span><span class="mls-tab-en">Story</span>
+      </a>
+      <a href="https://www.madhyamam.com/literature" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">കവിത</span><span class="mls-tab-en">Poetry</span>
+      </a>
+      <a href="https://truecopythink.media/literature" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">ലേഖനം</span><span class="mls-tab-en">Essay</span>
+      </a>
+      <a href="https://dcink.in/" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">നിരൂപണം</span><span class="mls-tab-en">Review</span>
+      </a>
+      <a href="https://truecopythink.media/literature" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">അഭിമുഖം</span><span class="mls-tab-en">Interview</span>
+      </a>
+      <a href="https://www.madhyamam.com/literature" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">കല</span><span class="mls-tab-en">Art</span>
+      </a>
+      <a href="https://dcink.in/" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">സംസ്കാരം</span><span class="mls-tab-en">Culture</span>
+      </a>
+      <a href="https://dcink.in/" target="_blank" class="mls-tab">
+        <span class="mls-tab-ml">DC Ink</span><span class="mls-tab-en">Daily Lit</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Date strip -->
+  <div class="mls-date">
+    <div class="mls-dot"></div>
+    <span>March 3, 2026</span>
+    <div class="mls-dot"></div>
+    <span>Manorama Online · Truecopy Think · DC Ink · Mathrubhumi · Madhyamam</span>
+    <div class="mls-dot"></div>
+    <span>മലയാള സാഹിത്യ പോർട്ടൽ</span>
+  </div>
+
+  <!-- Featured article + sidebar -->
+  <div class="mls-body">
+    <div class="mls-top">
+
+      <!-- Featured -->
+      <div class="mls-feat">
+        <div class="mls-feat-badge">✦ ഇന്നത്തെ പ്രത്യേക കഥ · New Story · March 3, 2026</div>
+        <h3>പോക്കുവെയിലിലെ കരിമേഘങ്ങൾ</h3>
+        <div class="mls-feat-sub">Dark Clouds in the Evening Sunlight — A New Malayalam Short Story</div>
+        <div class="mls-byline">
+          <div class="mls-avatar">ഗ</div>
+          <div class="mls-byline-info">
+            <b>ഗോപൻ അമ്പാട്ട്</b>
+            <span>Manorama Online &nbsp;·&nbsp; കഥ (Short Story) &nbsp;·&nbsp; March 3, 2026</span>
+          </div>
+        </div>
+        <p class="mls-feat-body">
+          Published just today on Manorama Online's literature portal, Gopan Ambatt's new story
+          paints an intimate Kerala moment — a scooter resting in the shade of a tree, a sudden
+          pang of hunger, and the weight of an unspoken afternoon. A small, precise story about
+          the ordinary textures of life that Malayalam fiction captures so beautifully.
+        </p>
+        <p class="mls-feat-ml">
+          ഒരു മരത്തണലിൽ സ്കൂട്ടർ ചാരിവച്ച് നിൽക്കുന്ന നേരം — ആ നിശ്ശബ്ദതയിൽ ജീവിതം
+          ഒരു ചെറിയ വിശപ്പായി, ഒരു ഇളകിയ മേഘമായി, ഒരു ഉൾവിളിയായി നിറഞ്ഞുവരുന്നു.
+        </p>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/03/malayalam-literature-short-story-by-gopan-ambatt.html"
+           target="_blank" class="mls-btn">
+          മുഴുവൻ വായിക്കുക &nbsp;→
+        </a>
+      </div>
+
+      <!-- Sidebar: This Week -->
+      <div class="mls-sidebar">
+        <div class="mls-sidebar-hd">
+          <span>ഈ ആഴ്ച / This Week</span>
+          <span>Latest</span>
+        </div>
+
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/03/malayalam-literature-short-story-by-gopan-ambatt.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">01</span>
+          <div class="mls-si-cat">കഥ · Short Story · Mar 3, 2026</div>
+          <div class="mls-si-title">പോക്കുവെയിലിലെ കരിമേഘങ്ങൾ <span class="mls-new">New</span></div>
+          <div class="mls-si-meta">By ഗോപൻ അമ്പാട്ട് &nbsp;·&nbsp; Manorama Online</div>
+        </a>
+
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/02/malayalam-literature-short-story-viralppadu-by-maya-vandana.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">02</span>
+          <div class="mls-si-cat">കഥ · Short Story · Mar 2, 2026</div>
+          <div class="mls-si-title">വിരൽപ്പാട് <span class="mls-new">New</span></div>
+          <div class="mls-si-meta">By മായ വന്ദന പുലിക്കോട്ടിൽ &nbsp;·&nbsp; Manorama Online</div>
+        </a>
+
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/02/malayalam-poem-pudava-written-by-jofy-rohini-sreeraj.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">03</span>
+          <div class="mls-si-cat">കവിത · Poem · Mar 2, 2026</div>
+          <div class="mls-si-title">പുടവ <span class="mls-new">New</span></div>
+          <div class="mls-si-meta">By റോഹിണി ശ്രീരാജ് &nbsp;·&nbsp; Manorama Online</div>
+        </a>
+
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/01/malayalam-poem-verukal-written-by-krishnapriya-prakash.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">04</span>
+          <div class="mls-si-cat">കവിത · Poem · Mar 1, 2026</div>
+          <div class="mls-si-title">വേരുകൾ <span class="mls-new">New</span></div>
+          <div class="mls-si-meta">By കൃഷ്ണപ്രിയ പ്രകാശ് &nbsp;·&nbsp; Manorama Online</div>
+        </a>
+
+        <a href="https://www.manoramaonline.com/literature/literaryworld/2026/02/27/indiwood-bhasha-sahitya-puraskaram-2025.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">05</span>
+          <div class="mls-si-cat">സാഹിത്യ വാർത്ത · Award · Feb 27, 2026</div>
+          <div class="mls-si-title">ഇൻഡിവുഡ് ഭാഷാ സാഹിത്യ പുരസ്‌കാരം 2025</div>
+          <div class="mls-si-meta">Sreekumaran Thampi &nbsp;·&nbsp; Manorama Literary World</div>
+        </a>
+
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/02/24/malayalam-literature-short-story-rithukal-sakshi-by-nishobh-othayoth.html" target="_blank" class="mls-si">
+          <span class="mls-si-n">06</span>
+          <div class="mls-si-cat">കഥ · Short Story · Feb 24, 2026</div>
+          <div class="mls-si-title">ഋതുക്കൾ സാക്ഷി</div>
+          <div class="mls-si-meta">By നിശോഭ് ഒതയോത്ത് &nbsp;·&nbsp; Manorama Online</div>
+        </a>
+
+        <a href="https://digital.mathrubhumi.com/t/406/1" target="_blank" class="mls-si" style="background:rgba(200,144,32,0.06);border-left:3px solid var(--gold);padding-left:10px;">
+          <span class="mls-si-n">07</span>
+          <div class="mls-si-cat" style="color:var(--gold-dk);">ആഴ്ചപ്പതിപ്പ് · Weekly Magazine · Feb 2026</div>
+          <div class="mls-si-title">മാതൃഭൂമി ആഴ്ചപ്പതിപ്പ് <span class="mls-new">Issue 406</span></div>
+          <div class="mls-si-meta">Mathrubhumi Illustrated Weekly &nbsp;·&nbsp; digital.mathrubhumi.com</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section divider -->
+    <div class="mls-sec-hd">
+      <h4>Category Highlights · വർഗ്ഗ ഹൈലൈറ്റ്സ്</h4>
+    </div>
+
+    <!-- 3-column grid: കഥ · കവിത · ലേഖനം/നിരൂപണം -->
+    <div class="mls-3col">
+
+      <!-- Column 1: കഥ Short Stories -->
+      <div class="mls-col">
+        <div class="mls-col-hd">
+          <div class="mls-col-name"><small>Short Stories</small>കഥ</div>
+          <a href="https://www.manoramaonline.com/literature/your-creatives.html" target="_blank" class="mls-col-more">എല്ലാം →</a>
+        </div>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/03/malayalam-literature-short-story-by-gopan-ambatt.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Mar 3, 2026</div>
+          <h5>പോക്കുവെയിലിലെ കരിമേഘങ്ങൾ <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">A scooter in the shade, a sudden hunger pang — an afternoon Kerala story of ordinary life.</p>
+          <div class="mls-art-by">By ഗോപൻ അമ്പാട്ട്</div>
+        </a>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/02/malayalam-literature-short-story-viralppadu-by-maya-vandana.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Mar 2, 2026</div>
+          <h5>വിരൽപ്പാട് <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">On Valentine's Day, Abhilash Sir shares an old college love story with his students — a Kerala romance.</p>
+          <div class="mls-art-by">By മായ വന്ദന പുലിക്കോട്ടിൽ</div>
+        </a>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/02/24/malayalam-literature-short-story-rithukal-sakshi-by-nishobh-othayoth.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Feb 24, 2026</div>
+          <h5>ഋതുക്കൾ സാക്ഷി</h5>
+          <p class="mls-art-snip">Unspoken love and emotional reunion — a poignant story set in a temple, exploring what seasons witness.</p>
+          <div class="mls-art-by">By നിശോഭ് ഒതയോത്ത്</div>
+        </a>
+        <a href="https://truecopythink.media/short-story/athe-pakal-athe-rathri-malayalam-short-story-by-jomon-jose" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Truecopy Think · Feb 2026</div>
+          <h5>അതേ പകൽ അതേ രാത്രി</h5>
+          <p class="mls-art-snip">Time, repetition and the weight of sameness — an intimate Malayalam short story.</p>
+          <div class="mls-art-by">By ജോമോൻ ജോസ്</div>
+        </a>
+
+        <a href="https://digital.mathrubhumi.com/t/406/1" target="_blank" class="mls-art" style="background:var(--parchment);border:1px solid var(--rule);padding:14px;margin-top:6px;">
+          <div class="mls-art-cat" style="color:var(--gold-dk);display:flex;align-items:center;gap:6px;">
+            <span style="background:var(--gold);color:var(--ink);font-size:6.5px;letter-spacing:2px;padding:2px 6px;text-transform:uppercase;font-family:var(--mono);">ആഴ്ചപ്പതിപ്പ്</span>
+            Mathrubhumi Weekly · Issue 406 · Feb 2026
+          </div>
+          <h5 style="font-size:17px;">മാതൃഭൂമി ആഴ്ചപ്പതിപ്പ്</h5>
+          <p class="mls-art-snip">Malayalam literature's longest-running weekly — short stories, serialized novels, poetry, book reviews and cultural essays. Read the current issue on Mathrubhumi Digital.</p>
+          <div class="mls-art-by" style="display:flex;align-items:center;gap:8px;">
+            Mathrubhumi Printing &amp; Publishing
+            <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:var(--ink);color:var(--parchment);padding:2px 7px;">Read Issue →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Column 2: കവിത Poetry -->
+      <div class="mls-col">
+        <div class="mls-col-hd">
+          <div class="mls-col-name"><small>Poetry</small>കവിത</div>
+          <a href="https://www.manoramaonline.com/literature/your-creatives.html" target="_blank" class="mls-col-more">എല്ലാം →</a>
+        </div>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/01/malayalam-poem-verukal-written-by-krishnapriya-prakash.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Mar 1, 2026</div>
+          <h5>വേരുകൾ <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">Roots — a new Malayalam poem on identity, belonging, and what connects us to the earth beneath.</p>
+          <div class="mls-art-by">By കൃഷ്ണപ്രിയ പ്രകാശ്</div>
+        </a>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/02/malayalam-poem-pudava-written-by-jofy-rohini-sreeraj.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Mar 2, 2026</div>
+          <h5>പുടവ <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">A sari — as metaphor, as memory, as the quiet inheritance of womanhood. A new Malayalam poem.</p>
+          <div class="mls-art-by">By റോഹിണി ശ്രീരാജ്</div>
+        </a>
+        <a href="https://www.manoramaonline.com/literature/your-creatives/2026/03/01/malayalam-poem-kinav-written-by-priya-sree.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Online · Mar 1, 2026</div>
+          <h5>കിനാവ് <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">Dream — a lyrical new Malayalam poem exploring the borders between sleep, memory, and longing.</p>
+          <div class="mls-art-by">By പ്രിയ ശ്രീ</div>
+        </a>
+        <a href="https://truecopythink.media/poetry/adakam-cheytha-shabdangalude-randam-janmam-malayalam-poem-by-poornima-nisha" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Truecopy Think · Feb 2026</div>
+          <h5>അടക്കം ചെയ്ത ശബ്ദങ്ങളുടെ രണ്ടാം ജന്മം</h5>
+          <p class="mls-art-snip">The second birth of suppressed voices — a powerful Malayalam poem on silenced histories.</p>
+          <div class="mls-art-by">By പൂർണിമ നിഷ</div>
+        </a>
+      </div>
+
+      <!-- Column 3: ലേഖനം + നിരൂപണം -->
+      <div class="mls-col">
+        <div class="mls-col-hd">
+          <div class="mls-col-name"><small>Essay · Review</small>ലേഖനം</div>
+          <a href="https://truecopythink.media/literature" target="_blank" class="mls-col-more">എല്ലാം →</a>
+        </div>
+        <a href="https://www.manoramaonline.com/literature/literaryworld/2026/02/27/indiwood-bhasha-sahitya-puraskaram-2025.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Literary World · Feb 27, 2026</div>
+          <h5>ഇൻഡിവുഡ് ഭാഷാ സാഹിത്യ പുരസ്‌കാരം 2025 <span class="mls-new">New</span></h5>
+          <p class="mls-art-snip">Malayalam literature's richest prize — Sreekumaran Thampi honoured with Bhasha Kesari at a landmark ceremony in Valappad.</p>
+          <div class="mls-art-by">Manorama Online</div>
+        </a>
+        <a href="https://truecopythink.media/literature/vaikom-muhammad-basheer-maalapattu-muhammed-sadique-n-writes" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Truecopy Think · Feb 2026</div>
+          <h5>മാലപ്പാട്ടിലെ ഇമ്മിണി വല്യ ഒന്ന്</h5>
+          <p class="mls-art-snip">A deep literary study of Basheer's Malapattu — what makes the master's language so singular and untranslatable.</p>
+          <div class="mls-art-by">By മുഹമ്മദ് സാദിഖ്. എൻ.</div>
+        </a>
+        <a href="https://www.manoramaonline.com/literature/literaryworld/2026/02/20/indivood-bhasha-sahithya-puraskaram-2026.html" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Manorama Literary World · Feb 20, 2026</div>
+          <h5>ശ്രീകുമാരൻ തമ്പിക്കും എം.ഡി രാജേന്ദ്രനും പുരസ്‌കാരം</h5>
+          <p class="mls-art-snip">Indiwood Bhasha Sahitya Puraskaram announced for Sreekumaran Thampi and M.D. Rajendran — Kerala's highest prize in letters.</p>
+          <div class="mls-art-by">Manorama Online</div>
+        </a>
+        <a href="https://www.purplepencilproject.com/s-hareesh-book-review-august-17/" target="_blank" class="mls-art">
+          <div class="mls-art-cat">Purple Pencil Project · Review</div>
+          <h5>S. Hareesh's August 17 — ഒരു ഇതര ചരിത്രം</h5>
+          <p class="mls-art-snip">What if Travancore never joined India? A close reading of Hareesh's daring alternate history.</p>
+          <div class="mls-art-by">Purple Pencil Project</div>
+        </a>
+      </div>
+    </div><!-- end 3col -->
+
+    <!-- Author spotlight -->
+    <div class="mls-sec-hd" style="padding-top:24px;margin-bottom:0;">
+      <h4>എഴുത്തുകാർ · Authors to Read Now</h4>
+    </div>
+    <div class="mls-authors">
+      <a href="https://dcbookstore.com/authors/benyamin" target="_blank" class="mls-author">
+        <div class="mls-author-init">ബ</div>
+        <div class="mls-author-ml">ബെന്യാമിൻ</div>
+        <div class="mls-author-en">Benyamin</div>
+        <div class="mls-author-genre">Novel · ആടുജീവിതം</div>
+      </a>
+      <a href="https://dcbookstore.com/books/mathilukal" target="_blank" class="mls-author">
+        <div class="mls-author-init">ബ</div>
+        <div class="mls-author-ml">വൈക്കം ബഷീർ</div>
+        <div class="mls-author-en">Vaikom M. Basheer</div>
+        <div class="mls-author-genre">Story · Novel</div>
+      </a>
+      <a href="https://dcbookstore.com/authors/s.-hareesh" target="_blank" class="mls-author">
+        <div class="mls-author-init">ഹ</div>
+        <div class="mls-author-ml">എസ്. ഹരീഷ്</div>
+        <div class="mls-author-en">S. Hareesh</div>
+        <div class="mls-author-genre">Novel · August 17</div>
+      </a>
+      <a href="https://dcbookstore.com/authors/k.r.meera" target="_blank" class="mls-author">
+        <div class="mls-author-init">മ</div>
+        <div class="mls-author-ml">കെ.ആർ. മീര</div>
+        <div class="mls-author-en">K.R. Meera</div>
+        <div class="mls-author-genre">Novel · Short Story</div>
+      </a>
+      <a href="https://dcbookstore.com/authors/t.d.ramakrishnan" target="_blank" class="mls-author">
+        <div class="mls-author-init">ര</div>
+        <div class="mls-author-ml">ടി.ഡി. രാമകൃഷ്ണൻ</div>
+        <div class="mls-author-en">T.D. Ramakrishnan</div>
+        <div class="mls-author-genre">Novel · Francis Ittykora</div>
+      </a>
+    </div>
+
+  </div><!-- end mls-body -->
+
+  <!-- Pull-quotes band -->
+  <div class="mls-pq">
+    <div class="mls-pq-item">
+      <div class="mls-pq-src">വൈക്കം മുഹമ്മദ് ബഷീർ</div>
+      <div class="mls-pq-q">സ്നേഹിക്കുക, സ്നേഹിക്കുക, സ്നേഹിക്കുക — ഇതല്ലാതെ ജീവിതത്തിൽ മറ്റൊന്നുമില്ല.</div>
+      <div class="mls-pq-who">Vaikom Muhammad Basheer · Balyakalasakhi</div>
+    </div>
+    <div class="mls-pq-item">
+      <div class="mls-pq-src">O.V. വിജയൻ</div>
+      <div class="mls-pq-q">The word is flesh. The flesh is the word. In Malayalam, the two were never separated.</div>
+      <div class="mls-pq-who">O.V. Vijayan · Khasakkinte Ithihasam</div>
+    </div>
+    <div class="mls-pq-item">
+      <div class="mls-pq-src">M.T. വാസുദേവൻ നായർ</div>
+      <div class="mls-pq-q">ഭൂതകാലം ഒരിക്കലും പോകില്ല. അത് നമ്മുടെ ഉള്ളിൽ ജീവനോടെ ഇരിക്കുന്നു.</div>
+      <div class="mls-pq-who">M.T. Vasudevan Nair · Naalukettu</div>
     </div>
   </div>
+
+  <!-- Submit writing CTA -->
+  <div class="mls-cta">
+    <div>
+      <div class="mls-cta-eye">Yellow Feather · Writers Corner</div>
+      <h3>നിങ്ങളുടെ സൃഷ്ടി ഇവിടെ പ്രസിദ്ധീകരിക്കൂ</h3>
+      <p>Stories · Poems · Essays · Reviews · Author Interviews — All genres welcome</p>
+    </div>
+    <a href="#writers" class="mls-cta-btn"
+       onclick="document.getElementById('writers').scrollIntoView({behavior:'smooth'});return false;">
+      Submit Your Writing &nbsp;→
+    </a>
+  </div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="vid-section" id="videos">
+
+  <!-- Head: brand + category tabs -->
+  <div class="vid-head">
+    <div class="vid-brand">
+      <div class="vid-brand-eye">Yellow Feather Books</div>
+      <h2>📽 <em>Watch</em> — Book Reviews &amp; More</h2>
+    </div>
+    <nav class="vid-tabs">
+      <a href="#videos" class="vid-tab active">All</a>
+      <a href="#videos" class="vid-tab">Book Reviews</a>
+      <a href="#videos" class="vid-tab">Announcements</a>
+      <a href="#videos" class="vid-tab">Author Talks</a>
+      <a href="#videos" class="vid-tab">Unboxing</a>
+    </nav>
+  </div>
+
+  <!-- Featured player + playlist -->
+  <div class="vid-body">
+
+    <!-- Left: featured player -->
+    <div class="vid-main">
+
+      <!-- HTML5 video player frame -->
+      <div class="vid-player-wrap" id="vid-featured">
+        <div class="vid-placeholder" id="vid-ph">
+          <div class="vid-placeholder-icon" onclick="document.getElementById('vid-file-input').click()" style="cursor:pointer;">▶</div>
+          <p>Click to choose a video from your workspace</p>
+        </div>
+        <video id="vid-player" controls
+               style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Hidden file input -->
+      <input type="file" id="vid-file-input"
+             accept="video/mp4,video/webm,video/ogg,video/quicktime,.mp4,.webm,.mov,.mkv,.avi"
+             style="display:none;" onchange="yfFileChosen(this)" />
+
+      <!-- Controls bar -->
+      <div style="display:flex;gap:0;margin-top:12px;">
+        <button onclick="document.getElementById('vid-file-input').click()"
+                style="flex:1;padding:12px 20px;background:var(--gold);color:var(--ink);
+                       font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;
+                       border:none;cursor:pointer;font-weight:700;transition:background 0.2s;text-align:left;"
+                onmouseover="this.style.background='var(--gold-lt)'"
+                onmouseout="this.style.background='var(--gold)'">
+          📁 &nbsp;Choose Video from Workspace
+        </button>
+        <button onclick="yfVideoClear()" title="Remove video"
+                style="padding:12px 18px;background:rgba(255,255,255,0.05);color:rgba(242,234,216,0.45);
+                       font-family:var(--mono);font-size:11px;border:1px solid rgba(200,144,32,0.1);
+                       border-left:none;cursor:pointer;transition:background 0.2s;"
+                onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+          ✕ Clear
+        </button>
+      </div>
+      <div id="vid-status" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;
+           color:rgba(242,234,216,0.28);margin-top:7px;min-height:14px;">
+        Supported: MP4 · MOV · WebM · MKV · AVI
+      </div>
+
+      <!-- Caption -->
+      <div class="vid-caption">
+        <div class="vid-caption-tag" id="vid-caption-tag">📽 Video</div>
+        <h3 id="vid-caption-title">No video loaded — choose a file above</h3>
+        <div class="vid-caption-meta">
+          <span>Yellow Feather Books</span>
+          · <span id="vid-caption-size"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: info panel -->
+    <div class="vid-playlist">
+      <div class="vid-playlist-hd">
+        <span>Video Player</span>
+        <span>📽 Local</span>
+      </div>
+
+      
+
+    
+
+      
+
+      <div style="padding:14px 0 0;">
+        <div class="vid-item-cat" style="margin-bottom:8px;">Now loaded</div>
+        <div id="vid-loaded-name" style="font-family:var(--serif);font-size:14px;
+             color:rgba(242,234,216,0.32);font-style:italic;">No video</div>
+      </div>
+    </div>
+  </div><!-- end vid-body -->
+
+  <!-- Local video file script -->
+  <script>
+  (function(){
+    var objURL = null;
+
+    window.yfFileChosen = function(input) {
+      var file = input.files && input.files[0];
+      if (!file) return;
+      if (objURL) URL.revokeObjectURL(objURL);
+      objURL = URL.createObjectURL(file);
+
+      var player = document.getElementById('vid-player');
+      document.getElementById('vid-ph').style.display = 'none';
+      player.style.display = 'block';
+      player.src = objURL;
+      player.load();
+      player.play();
+
+      var mb = (file.size / 1048576).toFixed(1);
+      var sz = mb > 1024 ? (mb/1024).toFixed(1)+' GB' : mb+' MB';
+      var ext = (file.type.replace('video/','') || file.name.split('.').pop()).toUpperCase();
+
+      document.getElementById('vid-caption-title').textContent = file.name.replace(/\.[^/.]+$/,'');
+      document.getElementById('vid-caption-tag').textContent   = '▶ Now Playing';
+      document.getElementById('vid-caption-size').textContent  = sz + ' · ' + ext;
+      document.getElementById('vid-loaded-name').textContent   = file.name;
+      document.getElementById('vid-status').style.color = 'rgba(200,144,32,0.65)';
+      document.getElementById('vid-status').textContent = '▶ ' + file.name + ' · ' + sz;
+    };
+
+    window.yfVideoClear = function() {
+      var player = document.getElementById('vid-player');
+      player.pause(); player.src = ''; player.style.display = 'none';
+      if (objURL) { URL.revokeObjectURL(objURL); objURL = null; }
+      document.getElementById('vid-file-input').value = '';
+      document.getElementById('vid-ph').style.display = '';
+      document.getElementById('vid-caption-title').textContent = 'No video loaded — choose a file above';
+      document.getElementById('vid-caption-tag').textContent   = '📽 Video';
+      document.getElementById('vid-caption-size').textContent  = '';
+      document.getElementById('vid-loaded-name').textContent   = 'No video';
+      document.getElementById('vid-status').style.color = 'rgba(242,234,216,0.28)';
+      document.getElementById('vid-status').textContent = 'Supported: MP4 · MOV · WebM · MKV · AVI';
+    };
+  })();
+  </script>
+
+  <!-- Bottom category strip -->
+  <div class="vid-cats">
+    <a href="#videos" class="vid-cat">
+      <div class="vid-cat-icon">📖</div>
+      <div class="vid-cat-label">Book Reviews</div>
+      <div class="vid-cat-count">Malayalam &amp; English titles</div>
+    </a>
+    <a href="#videos" class="vid-cat">
+      <div class="vid-cat-icon">📣</div>
+      <div class="vid-cat-label">Announcements</div>
+      <div class="vid-cat-count">New arrivals, offers &amp; events</div>
+    </a>
+    <a href="#videos" class="vid-cat">
+      <div class="vid-cat-icon">🎙</div>
+      <div class="vid-cat-label">Author Talks</div>
+      <div class="vid-cat-count">Interviews &amp; readings</div>
+    </a>
+    <a href="#videos" class="vid-cat">
+      <div class="vid-cat-icon">📦</div>
+      <div class="vid-cat-label">Unboxing</div>
+      <div class="vid-cat-count">New book hauls &amp; collections</div>
+    </a>
+  </div>
+
 </section>
 
 <!-- NEW ARRIVALS -->
 <section class="section" id="arrivals" style="background:var(--parchment);">
+
   <div class="section-header">
     <h2>🚨 <em>Just Arrived</em></h2>
     <a href="https://yellowfeatherbookstore.in/collections/%F0%9F%9A%A8%F0%9F%93%9A-just-arrived" target="_blank" class="section-link">Shop All New Arrivals →</a>
   </div>
-  <div class="arrivals-layout">
-    <div class="arrival-featured" onclick="window.open('https://yellowfeatherbookstore.in/products/alikhitha','_blank')">
-      <div class="arrival-featured-tag">📖 Book of the Month · Feb 2026</div>
-      <h3>Alikhitha</h3>
-      <div class="author">Malayalam Fiction · New Release</div>
-      <p>A haunting novel about identity, belonging, and the letters we write to ourselves across time. Beautifully wrought, emotionally devastating — this is the kind of Malayalam fiction that reminds you why stories matter.</p>
-      <a href="https://yellowfeatherbookstore.in/products/alikhitha" target="_blank" class="btn-gold">
-        Buy Now — ₹360
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+  <div class="arrivals-layout" id="arrivals-layout">
+    <!-- skeleton loader -->
+    <div class="arrival-featured" style="display:flex;align-items:center;justify-content:center;min-height:280px;opacity:0.5;">
+      <div style="text-align:center;font-style:italic;color:var(--ink-lt);font-size:14px;">
+        <div style="font-size:28px;margin-bottom:12px;animation:spin 1s linear infinite;display:inline-block;">⟳</div><br>
+        Loading latest arrivals…
+      </div>
     </div>
-
-    <div class="arrivals-list">
-      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/naramundo-khela','_blank')">
-        <div class="arrival-thumb">📗</div>
-        <div class="arrival-info">
-          <div class="arrival-badge">New · Fiction</div>
-          <h4>Naramundo Khela</h4>
-          <div class="author">Malayalam</div>
-          <p>A darkly comic tale of small-town Kerala intrigue.</p>
-        </div>
-        <div class="arrival-price">₹145</div>
-      </div>
-
-      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/301-aam-number-muriyile-maranam','_blank')">
-        <div class="arrival-thumb">📘</div>
-        <div class="arrival-info">
-          <div class="arrival-badge">New · Crime</div>
-          <h4>301–Aam Number Muriyile Maranam</h4>
-          <div class="author">Malayalam Thriller</div>
-          <p>Who died in room 301? A gripping literary mystery.</p>
-        </div>
-        <div class="arrival-price">₹162</div>
-      </div>
-
-      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/aarum-kaanatha-yudhangal','_blank')">
-        <div class="arrival-thumb">📕</div>
-        <div class="arrival-info">
-          <div class="arrival-badge">New · War Literature</div>
-          <h4>Aarum Kaanatha Yudhangal</h4>
-          <div class="author">Malayalam</div>
-          <p>Wars nobody saw. Battles fought in silence and shadow.</p>
-        </div>
-        <div class="arrival-price">₹213</div>
-      </div>
-
-      <div class="arrival-item" onclick="window.open('https://yellowfeatherbookstore.in/products/bougainvilleakal-pookkumbol','_blank')">
-        <div class="arrival-thumb">📙</div>
-        <div class="arrival-info">
-          <div class="arrival-badge">New · Poetry</div>
-          <h4>Bougainvilleakal Pookkumbol</h4>
-          <div class="author">Malayalam Poetry</div>
-          <p>Verses that bloom like bougainvillea — vivid and impossible to ignore.</p>
-        </div>
-        <div class="arrival-price">₹128</div>
-      </div>
+    <div class="arrivals-list" id="arrivals-list-skeleton" style="opacity:0.3;">
+      <div class="arrival-item"><div class="arrival-thumb">📗</div><div class="arrival-info"><div class="arrival-badge">Loading…</div><h4 style="background:var(--rule);color:transparent;border-radius:4px;">████████████</h4></div></div>
+      <div class="arrival-item"><div class="arrival-thumb">📘</div><div class="arrival-info"><div class="arrival-badge">Loading…</div><h4 style="background:var(--rule);color:transparent;border-radius:4px;">████████████</h4></div></div>
+      <div class="arrival-item"><div class="arrival-thumb">📕</div><div class="arrival-info"><div class="arrival-badge">Loading…</div><h4 style="background:var(--rule);color:transparent;border-radius:4px;">████████████</h4></div></div>
     </div>
   </div>
 </section>
@@ -1135,163 +2008,923 @@ footer {
 <section class="section reviews-section" id="reviews">
   <div class="section-header">
     <h2>Reader <em>Reviews</em></h2>
-    <a href="#" class="section-link">Submit Your Review →</a>
+    <a href="#review-form" class="section-link" onclick="document.getElementById('review-form').scrollIntoView({behavior:'smooth'});return false;">Write a Review →</a>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-book">Chittilasseriyile Choolamvilikkar</div>
-      <div class="review-book-author">Historical Fiction</div>
-      <p class="review-text">"I finished it in one sitting. The historical detail is extraordinary — you don't just read it, you inhabit it. One of the most important Malayalam novels of this decade."</p>
-      <div class="review-meta">
-        <div class="review-avatar">A</div>
-        <div class="review-by"><strong>Arjun Menon</strong>Kozhikode · Verified Reader</div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-book">Pinnakkidi Mottaso</div>
-      <div class="review-book-author">Short Stories</div>
-      <p class="review-text">"Each story is a small wound that heals slowly. The author writes with scalpel precision and poet's heart. Rarely do short stories linger this long in the mind."</p>
-      <div class="review-meta">
-        <div class="review-avatar">S</div>
-        <div class="review-by"><strong>Sreelakshmi P.</strong>Thiruvananthapuram · Book Club Member</div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★☆</div>
-      <div class="review-book">Bougainvilleakal Pookkumbol</div>
-      <div class="review-book-author">Poetry Collection</div>
-      <p class="review-text">"I read it every morning with my coffee. There's a poem in here about a grandmother's hands that made me cry without warning. Essential poetry for our times."</p>
-      <div class="review-meta">
-        <div class="review-avatar">N</div>
-        <div class="review-by"><strong>Nithya Ramesh</strong>Thrissur · Poetry Reader</div>
-      </div>
+
+  <!-- Live reviews grid from Firebase -->
+  <div class="reviews-grid" id="live-reviews-grid">
+    <div style="grid-column:1/-1;padding:32px 0;text-align:center;font-style:italic;color:var(--ink-lt);font-size:14px;">
+      <span style="display:inline-block;animation:spin 1s linear infinite;margin-right:8px;">⟳</span>Loading reviews…
     </div>
   </div>
 
-  <!-- Review submission CTA -->
-  <div style="margin-top:40px;padding:32px 36px;border:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-    <div>
-      <div style="font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:6px;">Share Your Reading Experience</div>
-      <div style="font-size:15px;color:var(--ink-lt);">Read a book from Yellow Feather? Tell the world what you thought — your review helps other readers discover their next great read.</div>
+  <!-- Submit Review Form -->
+  <div id="review-form" style="margin-top:48px;padding:36px 40px;border:1px solid var(--rule);background:var(--cream);">
+    <div style="font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:6px;">Share Your Reading Experience</div>
+    <div style="font-size:14px;color:var(--ink-lt);margin-bottom:28px;">Read a book from Yellow Feather? Your review goes live instantly and helps other readers find their next great read.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div>
+        <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:6px;">Your Name *</label>
+        <input type="text" id="rv-name" placeholder="e.g. Sreelakshmi P." style="width:100%;padding:10px 14px;border:1px solid var(--rule);background:var(--parchment);font-size:14px;font-family:var(--sans);color:var(--ink);outline:none;box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:6px;">Location</label>
+        <input type="text" id="rv-location" placeholder="e.g. Kozhikode, Kerala" style="width:100%;padding:10px 14px;border:1px solid var(--rule);background:var(--parchment);font-size:14px;font-family:var(--sans);color:var(--ink);outline:none;box-sizing:border-box;">
+      </div>
     </div>
-    <a href="#writers" class="btn-read" style="white-space:nowrap;">Write a Review →</a>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div>
+        <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:6px;">Book Title *</label>
+        <input type="text" id="rv-book" placeholder="e.g. Alikhitha" style="width:100%;padding:10px 14px;border:1px solid var(--rule);background:var(--parchment);font-size:14px;font-family:var(--sans);color:var(--ink);outline:none;box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:6px;">Genre / Type</label>
+        <input type="text" id="rv-genre" placeholder="e.g. Historical Fiction" style="width:100%;padding:10px 14px;border:1px solid var(--rule);background:var(--parchment);font-size:14px;font-family:var(--sans);color:var(--ink);outline:none;box-sizing:border-box;">
+      </div>
+    </div>
+
+    <!-- Star rating -->
+    <div style="margin-bottom:14px;">
+      <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:8px;">Your Rating *</label>
+      <div id="rv-stars" style="display:flex;gap:6px;font-size:28px;cursor:pointer;" data-rating="0">
+        <span class="rv-star" data-val="1" style="transition:transform 0.1s;">☆</span>
+        <span class="rv-star" data-val="2" style="transition:transform 0.1s;">☆</span>
+        <span class="rv-star" data-val="3" style="transition:transform 0.1s;">☆</span>
+        <span class="rv-star" data-val="4" style="transition:transform 0.1s;">☆</span>
+        <span class="rv-star" data-val="5" style="transition:transform 0.1s;">☆</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <label style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-lt);display:block;margin-bottom:6px;">Your Review *</label>
+      <textarea id="rv-text" rows="4" placeholder="What did you love about this book? What moved you? Share your honest thoughts…" style="width:100%;padding:10px 14px;border:1px solid var(--rule);background:var(--parchment);font-size:14px;font-family:var(--sans);color:var(--ink);outline:none;resize:vertical;line-height:1.6;box-sizing:border-box;"></textarea>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button id="rv-submit-btn" style="padding:12px 32px;background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;border:none;cursor:pointer;letter-spacing:0.05em;font-family:var(--sans);">
+        Post Review →
+      </button>
+      <div id="rv-msg" style="font-size:13px;color:var(--ink-lt);"></div>
+    </div>
   </div>
 </section>
 
-<!-- COMMUNITY -->
+<!-- FIREBASE SDK -->
+<script type="module">
+  import { initializeApp }       from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, set, get, onValue, query, orderByChild, limitToLast }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  import { getFirestore, collection, addDoc, doc, getDoc, serverTimestamp as fsTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // ── Firebase config
+  const firebaseConfig = {
+    apiKey:            "AIzaSyD07Nvqfc4ICmbnWPiby0NAak4neVbS-VU",
+    authDomain:        "yellowfeather-forum.firebaseapp.com",
+    databaseURL:       "https://yellowfeather-forum-default-rtdb.firebaseio.com",
+    projectId:         "yellowfeather-forum",
+    storageBucket:     "yellowfeather-forum.firebasestorage.app",
+    messagingSenderId: "592305451543",
+    appId:             "1:592305451543:web:9eb4df403c8b0f890ae252"
+  };
+
+  const app  = initializeApp(firebaseConfig);
+  const db   = getDatabase(app);
+  const fsdb = getFirestore(app);
+
+  // ── Helpers ────────────────────────────────────────────────────────────────
+  function timeAgo(ts) {
+    const s = Math.floor((Date.now() - ts) / 1000);
+    if (s < 60)    return 'just now';
+    if (s < 3600)  return Math.floor(s/60) + 'm ago';
+    if (s < 86400) return Math.floor(s/3600) + 'h ago';
+    return Math.floor(s/86400) + 'd ago';
+  }
+
+  function categoryIcon(cat) {
+    return { 'Reading Circle':'💬','World Literature':'🌍',"Writers' Corner":'✍️',
+             'Reviews':'📖','Malayalam Poetry':'🎭','General':'🗣️' }[cat] || '💬';
+  }
+
+  window.escHtml = function(s) {
+    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  };
+
+  // ── Render live thread list ────────────────────────────────────────────────
+  const threadsRef = query(ref(db,'threads'), orderByChild('ts'), limitToLast(20));
+  onValue(threadsRef, snap => {
+    const list = document.getElementById('live-thread-list');
+    if (!list) return;
+    const threads = [];
+    snap.forEach(c => threads.unshift({ id: c.key, ...c.val() }));
+    if (threads.length === 0) {
+      list.innerHTML = '<li style="padding:24px 0;font-style:italic;color:var(--ink-lt);font-size:15px;">No discussions yet — be the first to start one! 👇</li>';
+      return;
+    }
+    list.innerHTML = threads.map(t => `
+      <li class="forum-thread" onclick="openThread('${t.id}')" style="cursor:pointer;">
+        <div class="thread-icon">${categoryIcon(t.category)}</div>
+        <div class="thread-body">
+          <div class="thread-tag">${t.category || 'General'}</div>
+          <h4>${window.escHtml(t.title)}</h4>
+          <p>By ${window.escHtml(t.author)} · ${timeAgo(t.ts)}
+            ${t.replyCount ? `· <strong style="color:var(--ink)">${t.replyCount} repl${t.replyCount===1?'y':'ies'}</strong>` : ''}
+          </p>
+        </div>
+        <div class="thread-stats">
+          <span style="color:var(--gold);">Open →</span>
+          ${(t.replyCount||0) > 5 ? '<span style="color:var(--rust);">🔥 Hot</span>' : ''}
+        </div>
+      </li>`).join('');
+  });
+
+  // ── Open thread modal ──────────────────────────────────────────────────────
+  window.openThread = function(threadId) {
+    const modal = document.getElementById('thread-modal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const repliesRef = query(ref(db,`replies/${threadId}`), orderByChild('ts'));
+    const unsub = onValue(repliesRef, snap => {
+      const replies = [];
+      snap.forEach(c => replies.push({ id: c.key, ...c.val() }));
+      renderReplies(replies);
+    });
+    modal.dataset.threadId = threadId;
+    window._forumUnsub = unsub;
+    onValue(ref(db,`threads/${threadId}`), snap => {
+      const t = snap.val();
+      if (t) {
+        document.getElementById('modal-thread-title').textContent = t.title;
+        document.getElementById('modal-thread-meta').textContent =
+          `${t.category} · By ${t.author} · ${timeAgo(t.ts)}`;
+      }
+    }, { onlyOnce: true });
+  };
+
+  window.closeThread = function() {
+    document.getElementById('thread-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    if (window._forumUnsub) { window._forumUnsub(); window._forumUnsub = null; }
+  };
+
+  function renderReplies(replies) {
+    const box = document.getElementById('modal-replies');
+    if (!box) return;
+    if (replies.length === 0) {
+      box.innerHTML = '<p style="font-style:italic;color:var(--ink-lt);font-size:15px;padding:16px 0;">No replies yet. Start the conversation below!</p>';
+      return;
+    }
+    box.innerHTML = replies.map(r => `
+      <div class="reply-item">
+        <div class="reply-avatar">${window.escHtml(r.author||'?').charAt(0).toUpperCase()}</div>
+        <div class="reply-content">
+          <div class="reply-meta"><strong>${window.escHtml(r.author)}</strong> · ${timeAgo(r.ts)}</div>
+          <div class="reply-text">${window.escHtml(r.text)}</div>
+        </div>
+      </div>`).join('');
+    box.scrollTop = box.scrollHeight;
+  }
+
+  // ── Post new thread ────────────────────────────────────────────────────────
+  window.postThread = async function() {
+    const title  = document.getElementById('new-thread-title').value.trim();
+    const author = document.getElementById('new-thread-author').value.trim();
+    const cat    = document.getElementById('new-thread-cat').value;
+    const btn    = document.getElementById('post-thread-btn');
+    if (!title || !author) { alert('Please enter your name and a topic title.'); return; }
+    btn.textContent = 'Posting…'; btn.disabled = true;
+    try {
+      await push(ref(db,'threads'), { title, author, category: cat, ts: Date.now(), replyCount: 0 });
+      document.getElementById('new-thread-title').value = '';
+      document.getElementById('new-thread-author').value = '';
+      btn.textContent = '✓ Posted!';
+      setTimeout(() => { btn.textContent = 'Post Discussion →'; btn.disabled = false; }, 2000);
+    } catch(e) {
+      console.error('Forum post error:', e);
+      btn.textContent = 'Post Discussion →'; btn.disabled = false;
+      if (e.code === 'permission-denied') {
+        alert('Firebase Realtime Database rules are blocking writes.\n\nFix: Firebase Console → Realtime Database → Rules → set both read and write to true.');
+      } else {
+        alert('Error: ' + (e.message || e.code || 'unknown'));
+      }
+    }
+  };
+
+  // ── Post reply ─────────────────────────────────────────────────────────────
+  window.postReply = async function() {
+    const threadId = document.getElementById('thread-modal').dataset.threadId;
+    const text   = document.getElementById('reply-text').value.trim();
+    const author = document.getElementById('reply-author').value.trim();
+    const btn    = document.getElementById('post-reply-btn');
+    if (!text || !author) { alert('Please enter your name and a reply.'); return; }
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      await push(ref(db,`replies/${threadId}`), { text, author, ts: Date.now() });
+      const tRef = ref(db,`threads/${threadId}/replyCount`);
+      const snap = await get(tRef);
+      await set(tRef, (snap.val() || 0) + 1);
+      document.getElementById('reply-text').value = '';
+      btn.textContent = '✓ Sent!';
+      setTimeout(() => { btn.textContent = 'Post Reply →'; btn.disabled = false; }, 1500);
+    } catch(e) {
+      console.error('Reply error:', e);
+      btn.textContent = 'Post Reply →'; btn.disabled = false;
+      alert('Error: ' + (e.message || e.code || 'unknown'));
+    }
+  };
+
+  // ── Newsletter subscription ────────────────────────────────────────────────
+  // Module scripts are deferred - DOM is ready when this runs, no DOMContentLoaded needed
+  const subBtn   = document.getElementById('sub-btn');
+  const subInput = document.getElementById('sub-email');
+  const subNote  = document.getElementById('sub-note');
+
+  if (subBtn && subInput) {
+    const isValidEmail = e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+
+    async function saveSubscriber() {
+      const email = subInput.value.trim().toLowerCase();
+      if (!isValidEmail(email)) {
+        subInput.style.borderColor = '#c04030';
+        subInput.placeholder = 'Please enter a valid email...';
+        subInput.value = '';
+        return;
+      }
+      subBtn.textContent = 'Saving…';
+      subBtn.disabled = true;
+      subInput.disabled = true;
+      try {
+        await addDoc(collection(fsdb, 'subscribers'), {
+          email,
+          subscribedAt: fsTimestamp(),
+          source:    'yellow-feather-portal',
+          page:      window.location.href,
+          userAgent: navigator.userAgent.substring(0, 120)
+        });
+        subInput.value = '';
+        subInput.disabled = false;
+        subBtn.textContent = '✓ Subscribed!';
+        if (subNote) {
+          subNote.textContent = '✓ You are on the list! First digest arrives Thursday.';
+          subNote.style.color = 'rgba(180,240,180,0.9)';
+          subNote.style.fontWeight = '600';
+        }
+        setTimeout(() => { subBtn.textContent = 'Subscribe'; subBtn.disabled = false; }, 3000);
+      } catch (err) {
+        console.error('Subscription error:', err);
+        subInput.disabled = false;
+        subBtn.textContent = 'Subscribe';
+        subBtn.disabled = false;
+        let msg = '⚠ Could not save — ';
+        if (err.code === 'permission-denied') {
+          msg += 'Firestore rules block writes. Firebase Console → Firestore → Rules → allow create on /subscribers.';
+        } else if (err.message && err.message.includes('NOT_FOUND')) {
+          msg += 'Firestore database not created yet. Firebase Console → Firestore Database → Create database.';
+        } else {
+          msg += (err.message || err.code || 'Unknown error. Open browser console for details.');
+        }
+        if (subNote) { subNote.textContent = msg; subNote.style.color = 'rgba(255,180,100,0.9)'; subNote.style.fontSize='11px'; }
+        else alert(msg);
+      }
+    }
+
+    subBtn.addEventListener('click', saveSubscriber);
+    subInput.addEventListener('keydown', e => { if (e.key === 'Enter') saveSubscriber(); });
+  }
+
+  // ── Wire up forum buttons via addEventListener (more reliable than onclick in modules)
+  const postThreadBtn = document.getElementById('post-thread-btn');
+  if (postThreadBtn) postThreadBtn.addEventListener('click', window.postThread);
+
+  const postReplyBtn = document.getElementById('post-reply-btn');
+  if (postReplyBtn) postReplyBtn.addEventListener('click', window.postReply);
+
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', window.closeThread);
+
+  const threadModal = document.getElementById('thread-modal');
+  if (threadModal) threadModal.addEventListener('click', e => { if (e.target === threadModal) window.closeThread(); });
+
+
+  // ── Live Trending Books from yellowfeatherbookstore.in (Shopify API) ───────
+  (async function loadTrendingBooks() {
+    const list = document.getElementById('live-trending-list');
+    if (!list) return;
+
+    // Try "trending" collection first, fall back to "best-sellers"
+    const endpoints = [
+      'https://yellowfeatherbookstore.in/collections/trending/products.json?limit=10',
+      'https://yellowfeatherbookstore.in/collections/best-sellers/products.json?limit=10'
+    ];
+
+    let products = [];
+    for (const url of endpoints) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data.products && data.products.length > 0) {
+          products = data.products;
+          break;
+        }
+      } catch(e) {
+        console.warn('Trending fetch failed for', url, e.message);
+      }
+    }
+
+    if (products.length === 0) {
+      list.innerHTML = '<li style="padding:14px 0;font-style:italic;color:var(--ink-lt);font-size:13px;">Could not load — <a href="https://yellowfeatherbookstore.in/collections/trending" target="_blank" style="color:var(--gold);">view on store →</a></li>';
+      return;
+    }
+
+    list.innerHTML = products.map((p, i) => {
+      const num   = String(i + 1).padStart(2, '0');
+      const title = p.title || 'Untitled';
+      const vendor = p.vendor || '';
+      const type   = p.product_type || '';
+      const handle = p.handle || '';
+      const url    = 'https://yellowfeatherbookstore.in/products/' + handle;
+
+      // Price info
+      const variant  = p.variants && p.variants[0];
+      const price    = variant ? 'Rs. ' + parseFloat(variant.price).toFixed(0) : '';
+      const compare  = variant && variant.compare_at_price ? 'Rs. ' + parseFloat(variant.compare_at_price).toFixed(0) : '';
+      const onSale   = compare && parseFloat(variant.compare_at_price) > parseFloat(variant.price);
+      const soldOut  = variant && !variant.available;
+
+      const meta = [vendor, type].filter(Boolean).join(' · ');
+      const badge = soldOut
+        ? '<span style="font-size:9px;background:rgba(150,50,30,0.2);color:#d47060;padding:1px 6px;border-radius:10px;margin-left:4px;">Sold out</span>'
+        : onSale
+          ? '<span style="font-size:9px;background:rgba(80,160,80,0.2);color:#80c080;padding:1px 6px;border-radius:10px;margin-left:4px;">Sale</span>'
+          : '';
+
+      return `<li>
+        <span class="trending-num">${num}</span>
+        <a href="${url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;flex:1;">
+          <div class="trending-title">${title}${badge}</div>
+          <div class="trending-author">${meta}${price ? ' · <strong style="color:var(--gold)">' + price + '</strong>' : ''}${onSale ? ' <s style="opacity:0.45;font-size:10px">' + compare + '</s>' : ''}</div>
+        </a>
+      </li>`;
+    }).join('');
+  })();
+
+
+  // ── Live Just Arrived from yellowfeatherbookstore.in (Shopify API) ─────────
+  (async function loadJustArrived() {
+    const layout = document.getElementById('arrivals-layout');
+    if (!layout) return;
+
+    // The collection handle uses emoji — encoded URL
+    const COLLECTION_URL = 'https://yellowfeatherbookstore.in/collections/%F0%9F%9A%A8%F0%9F%93%9A-just-arrived/products.json?limit=8';
+    const STORE_BASE     = 'https://yellowfeatherbookstore.in/products/';
+    const COLLECTION_ALL = 'https://yellowfeatherbookstore.in/collections/%F0%9F%9A%A8%F0%9F%93%9A-just-arrived';
+
+    // Book emoji cycle for thumbnails
+    const thumbs = ['📗','📘','📕','📙','📒','📓','📔','📃'];
+
+    let products = [];
+    try {
+      const res = await fetch(COLLECTION_URL);
+      if (res.ok) {
+        const data = await res.json();
+        products = data.products || [];
+      }
+    } catch(e) {
+      console.warn('Just Arrived fetch failed:', e.message);
+    }
+
+    if (products.length === 0) {
+      layout.innerHTML = `
+        <div class="arrival-featured" style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;min-height:180px;">
+          <div style="text-align:center;">
+            <div style="font-size:32px;margin-bottom:12px;">📚</div>
+            <p style="font-style:italic;color:var(--ink-lt);font-size:14px;margin-bottom:16px;">Could not load arrivals right now.</p>
+            <a href="${COLLECTION_ALL}" target="_blank" class="btn-gold" style="font-size:13px;">
+              View on Store →
+            </a>
+          </div>
+        </div>`;
+      return;
+    }
+
+    // First product → featured card
+    const f = products[0];
+    const fVariant   = f.variants && f.variants[0];
+    const fPrice     = fVariant ? Math.round(parseFloat(fVariant.price)) : null;
+    const fCompare   = fVariant && fVariant.compare_at_price ? Math.round(parseFloat(fVariant.compare_at_price)) : null;
+    const fOnSale    = fCompare && fCompare > fPrice;
+    const fSoldOut   = fVariant && !fVariant.available;
+    const fUrl       = STORE_BASE + f.handle;
+    const fImg       = f.images && f.images[0] ? f.images[0].src.replace(/\.(jpg|png|webp)(\?|$)/, '.$1?width=400') : null;
+    const fVendor    = f.vendor || '';
+    const fType      = f.product_type || 'New Arrival';
+    const fDesc      = f.body_html
+      ? f.body_html.replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&nbsp;/g,' ').trim().substring(0, 160) + '…'
+      : 'Fresh from the press — one of our newest additions to the shelf.';
+    const fBtnLabel  = fSoldOut ? 'Sold Out' : `View Book${fPrice ? ' — ₹' + fPrice : ''}`;
+
+    const featuredHTML = `
+      <div class="arrival-featured" onclick="window.open('${fUrl}','_blank')" style="cursor:pointer;position:relative;overflow:hidden;">
+        ${fImg ? `<img src="${fImg}" alt="${f.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;pointer-events:none;">` : ''}
+        <div style="position:relative;z-index:1;">
+          <div class="arrival-featured-tag">
+            ✨ Just In · ${fVendor || fType}
+            ${fOnSale ? ' · <span style="color:#90d090;">On Sale</span>' : ''}
+            ${fSoldOut ? ' · <span style="color:#d47060;">Sold Out</span>' : ''}
+          </div>
+          <h3 style="margin-bottom:6px;">${f.title}</h3>
+          <div class="author">${fVendor}${fType && fType !== fVendor ? ' · ' + fType : ''}</div>
+          <p style="margin:14px 0 20px;">${fDesc}</p>
+          <a href="${fUrl}" target="_blank" class="btn-gold" onclick="event.stopPropagation()" ${fSoldOut ? 'style="opacity:0.55;pointer-events:none;"' : ''}>
+            ${fBtnLabel}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>`;
+
+    // Remaining products → list items
+    const listItems = products.slice(1).map((p, i) => {
+      const v        = p.variants && p.variants[0];
+      const price    = v ? Math.round(parseFloat(v.price)) : null;
+      const compare  = v && v.compare_at_price ? Math.round(parseFloat(v.compare_at_price)) : null;
+      const onSale   = compare && compare > price;
+      const soldOut  = v && !v.available;
+      const url      = STORE_BASE + p.handle;
+      const vendor   = p.vendor || '';
+      const ptype    = p.product_type || 'Book';
+      const thumb    = thumbs[(i + 1) % thumbs.length];
+      const badge    = soldOut ? 'Sold Out' : onSale ? 'Sale · ' + ptype : 'New · ' + ptype;
+      const badgeColor = soldOut ? 'color:#d47060;' : onSale ? 'color:#80c080;' : '';
+
+      return `
+        <div class="arrival-item" onclick="window.open('${url}','_blank')" style="cursor:pointer;">
+          <div class="arrival-thumb">${thumb}</div>
+          <div class="arrival-info">
+            <div class="arrival-badge" style="${badgeColor}">${badge}</div>
+            <h4>${p.title}</h4>
+            <div class="author">${vendor}</div>
+          </div>
+          <div class="arrival-price" style="${soldOut ? 'opacity:0.45;text-decoration:line-through;' : ''}">
+            ${price ? '₹' + price : ''}
+            ${onSale && compare ? '<br><s style="opacity:0.45;font-size:10px;">₹' + compare + '</s>' : ''}
+          </div>
+        </div>`;
+    }).join('');
+
+    layout.innerHTML = featuredHTML + `<div class="arrivals-list">${listItems}</div>`;
+  })();
+
+
+  // ── Reviews: live render + submit ─────────────────────────────────────────
+  (function initReviews() {
+
+    // ── Render live reviews from Firebase ────────────────────────────────────
+    const reviewsRef = query(ref(db, 'reviews'), orderByChild('ts'), limitToLast(12));
+    onValue(reviewsRef, snap => {
+      const grid = document.getElementById('live-reviews-grid');
+      if (!grid) return;
+      const reviews = [];
+      snap.forEach(c => reviews.unshift({ id: c.key, ...c.val() }));
+
+      if (reviews.length === 0) {
+        grid.innerHTML = `<div style="grid-column:1/-1;padding:32px 0;text-align:center;font-style:italic;color:var(--ink-lt);font-size:14px;">
+          No reviews yet — be the first to share your thoughts below! 👇</div>`;
+        return;
+      }
+
+      grid.innerHTML = reviews.map(r => {
+        const stars   = '★'.repeat(r.rating || 5) + '☆'.repeat(5 - (r.rating || 5));
+        const initial = (r.name || '?').charAt(0).toUpperCase();
+        const by      = r.location ? `${r.name} · ${r.location}` : r.name;
+        return `
+          <div class="review-card">
+            <div class="review-stars">${stars}</div>
+            <div class="review-book">${window.escHtml(r.book)}</div>
+            <div class="review-book-author">${window.escHtml(r.genre || '')}</div>
+            <p class="review-text">"${window.escHtml(r.text)}"</p>
+            <div class="review-meta">
+              <div class="review-avatar">${initial}</div>
+              <div class="review-by"><strong>${window.escHtml(r.name)}</strong>${window.escHtml(by)}</div>
+            </div>
+          </div>`;
+      }).join('');
+    });
+
+    // ── Star rating interaction ───────────────────────────────────────────────
+    const starsEl = document.getElementById('rv-stars');
+    if (starsEl) {
+      const starSpans = starsEl.querySelectorAll('.rv-star');
+
+      function paintStars(val) {
+        starSpans.forEach(s => {
+          const v = parseInt(s.dataset.val);
+          s.textContent = v <= val ? '★' : '☆';
+          s.style.color  = v <= val ? 'var(--gold)' : 'var(--ink-lt)';
+          s.style.transform = v <= val ? 'scale(1.15)' : 'scale(1)';
+        });
+      }
+
+      starSpans.forEach(s => {
+        s.addEventListener('mouseenter', () => paintStars(parseInt(s.dataset.val)));
+        s.addEventListener('mouseleave', () => paintStars(parseInt(starsEl.dataset.rating)));
+        s.addEventListener('click', () => {
+          starsEl.dataset.rating = s.dataset.val;
+          paintStars(parseInt(s.dataset.val));
+        });
+      });
+    }
+
+    // ── Submit review ─────────────────────────────────────────────────────────
+    const submitBtn = document.getElementById('rv-submit-btn');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', async () => {
+        const name    = (document.getElementById('rv-name').value    || '').trim();
+        const location= (document.getElementById('rv-location').value|| '').trim();
+        const book    = (document.getElementById('rv-book').value    || '').trim();
+        const genre   = (document.getElementById('rv-genre').value   || '').trim();
+        const text    = (document.getElementById('rv-text').value    || '').trim();
+        const rating  = parseInt(document.getElementById('rv-stars').dataset.rating || '0');
+        const msg     = document.getElementById('rv-msg');
+
+        // Validate
+        if (!name)   { msg.textContent = '⚠ Please enter your name.';      msg.style.color='#d47060'; return; }
+        if (!book)   { msg.textContent = '⚠ Please enter the book title.';  msg.style.color='#d47060'; return; }
+        if (!text)   { msg.textContent = '⚠ Please write your review.';     msg.style.color='#d47060'; return; }
+        if (!rating) { msg.textContent = '⚠ Please select a star rating.';  msg.style.color='#d47060'; return; }
+
+        submitBtn.textContent = 'Posting…';
+        submitBtn.disabled = true;
+        msg.textContent = '';
+
+        try {
+          await push(ref(db, 'reviews'), {
+            name, location, book, genre, text, rating,
+            ts: Date.now()
+          });
+
+          // Clear form
+          ['rv-name','rv-location','rv-book','rv-genre','rv-text'].forEach(id => {
+            document.getElementById(id).value = '';
+          });
+          document.getElementById('rv-stars').dataset.rating = '0';
+          document.getElementById('rv-stars').querySelectorAll('.rv-star').forEach(s => {
+            s.textContent = '☆'; s.style.color = ''; s.style.transform = 'scale(1)';
+          });
+
+          submitBtn.textContent = '✓ Review Posted!';
+          msg.textContent = 'Your review is now live. Thank you! 🙏';
+          msg.style.color = 'rgba(120,200,120,0.9)';
+
+          // Scroll up to reviews grid so they see it live
+          document.getElementById('live-reviews-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          setTimeout(() => {
+            submitBtn.textContent = 'Post Review →';
+            submitBtn.disabled = false;
+            msg.textContent = '';
+          }, 4000);
+
+        } catch(e) {
+          console.error('Review submit error:', e);
+          submitBtn.textContent = 'Post Review →';
+          submitBtn.disabled = false;
+          msg.textContent = e.code === 'permission-denied'
+            ? '⚠ Firebase rules blocking writes — check Realtime DB rules.'
+            : '⚠ Error: ' + (e.message || e.code);
+          msg.style.color = '#d47060';
+        }
+      });
+    }
+
+  })();
+
+
+  // ── Submit Your Writing → Firebase Realtime Database ─────────────────────
+  (function initWriterForm() {
+    const btn = document.getElementById('wr-submit-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', async () => {
+      const name  = (document.getElementById('wr-name').value  || '').trim();
+      const email = (document.getElementById('wr-email').value || '').trim();
+      const type  = (document.getElementById('wr-type').value  || '').trim();
+      const title = (document.getElementById('wr-title').value || '').trim();
+      const text  = (document.getElementById('wr-text').value  || '').trim();
+      const msg   = document.getElementById('wr-msg');
+
+      // Validate required fields
+      if (!name)  { msg.textContent = '⚠ Please enter your name.';           msg.style.color='#d47060'; return; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                   msg.textContent = '⚠ Please enter a valid email address.'; msg.style.color='#d47060'; return; }
+      if (!type)  { msg.textContent = '⚠ Please select a submission type.';  msg.style.color='#d47060'; return; }
+      if (!text)  { msg.textContent = '⚠ Please include your submission or message.'; msg.style.color='#d47060'; return; }
+
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+      msg.textContent = '';
+
+      try {
+        await push(ref(db, 'submissions'), {
+          name, email, type, title, text,
+          ts: Date.now()
+        });
+
+        // Clear form
+        ['wr-name','wr-email','wr-title','wr-text'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('wr-type').selectedIndex = 0;
+
+        btn.textContent = '✓ Submitted!';
+        msg.textContent = 'Thank you! Our editorial team will get back to you within 5 working days. 🙏';
+        msg.style.color = 'rgba(120,200,120,0.9)';
+
+        setTimeout(() => {
+          btn.textContent = 'Submit to Yellow Feather →';
+          btn.disabled = false;
+          msg.textContent = '';
+        }, 5000);
+
+      } catch(e) {
+        console.error('Submission error:', e);
+        btn.textContent = 'Submit to Yellow Feather →';
+        btn.disabled = false;
+        msg.textContent = e.code === 'permission-denied'
+          ? '⚠ Firebase rules blocking writes — check Realtime Database rules.'
+          : '⚠ Error: ' + (e.message || e.code);
+        msg.style.color = '#d47060';
+      }
+    });
+  })();
+
+  // Firebase connection errors are silently logged to console only
+  get(ref(db, '.info/connected')).catch(e => console.warn('Forum DB:', e.code || e.message));
+  getDoc(doc(fsdb, 'subscribers', '__probe__')).catch(e => {
+    if (e.code !== 'permission-denied') console.warn('Firestore:', e.code || e.message);
+  });
+
+</script>
+
+<!-- ═══════════════════════════════════════
+     THREAD DETAIL MODAL
+═══════════════════════════════════════ -->
+<style>
+.thread-modal-overlay {
+  position: fixed; inset: 0; background: rgba(10,8,5,0.88);
+  z-index: 5000; display: none; align-items: flex-end;
+  justify-content: center; padding: 0;
+}
+.thread-modal-overlay.open { display: flex; }
+.thread-modal-box {
+  background: var(--cream);
+  width: 100%; max-width: 720px;
+  height: 90vh; display: flex; flex-direction: column;
+  position: relative;
+  border-top: 3px solid var(--gold);
+  animation: slideUpModal 0.3s ease;
+}
+@keyframes slideUpModal {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.thread-modal-header {
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-shrink: 0;
+}
+.thread-modal-header h3 {
+  font-family: var(--serif); font-size: 20px; font-weight: 700;
+  line-height: 1.3; max-width: 560px;
+}
+.thread-modal-header p {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: var(--ink-lt); text-transform: uppercase; margin-top: 6px;
+}
+.modal-close-btn {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  color: var(--ink-lt); cursor: pointer; text-transform: uppercase;
+  padding: 6px 12px; border: 1px solid var(--rule);
+  flex-shrink: 0; margin-left: 16px; transition: background 0.2s;
+}
+.modal-close-btn:hover { background: var(--parchment); }
+#modal-replies {
+  flex: 1; overflow-y: auto; padding: 20px 32px;
+}
+.reply-item {
+  display: flex; gap: 14px; margin-bottom: 18px;
+  padding-bottom: 18px; border-bottom: 1px solid var(--rule);
+  animation: fadeUp 0.3s ease;
+}
+.reply-item:last-child { border-bottom: none; }
+.reply-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gold); color: var(--ink);
+  font-family: var(--serif); font-size: 16px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.reply-content { flex: 1; }
+.reply-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink-lt); margin-bottom: 6px;
+}
+.reply-meta strong { color: var(--ink); }
+.reply-text { font-size: 15px; line-height: 1.65; color: var(--ink-mid); }
+.thread-reply-form {
+  padding: 16px 32px 20px;
+  border-top: 1px solid var(--rule);
+  background: var(--parchment);
+  flex-shrink: 0;
+}
+.thread-reply-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.thread-reply-form input, .thread-reply-form textarea {
+  width: 100%; padding: 10px 14px;
+  background: var(--cream); border: 1px solid var(--rule);
+  color: var(--ink); font-family: var(--body); font-size: 15px;
+  outline: none; transition: border-color 0.2s; border-radius: 0;
+}
+.thread-reply-form input:focus, .thread-reply-form textarea:focus { border-color: var(--gold); }
+.thread-reply-form textarea { height: 70px; resize: none; margin-bottom: 10px; }
+
+/* New thread form */
+.new-thread-form {
+  background: var(--parchment);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--gold);
+  padding: 24px 28px;
+  margin-top: 24px;
+}
+.new-thread-form h4 {
+  font-family: var(--serif); font-size: 18px; font-weight: 700;
+  margin-bottom: 14px;
+}
+.new-thread-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.new-thread-form input, .new-thread-form select {
+  width: 100%; padding: 10px 14px;
+  background: var(--cream); border: 1px solid var(--rule);
+  color: var(--ink); font-family: var(--body); font-size: 15px;
+  outline: none; transition: border-color 0.2s; border-radius: 0;
+  appearance: none;
+}
+.new-thread-form input:focus, .new-thread-form select:focus { border-color: var(--gold); }
+
+/* Live badge */
+.live-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: #16a34a;
+  background: #dcfce7; border: 1px solid #86efac;
+  padding: 4px 10px; margin-bottom: 16px;
+}
+.live-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #16a34a;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Firebase setup notice */
+.firebase-notice {
+  background: #fffbeb; border: 1px solid #f59e0b;
+  padding: 16px 20px; margin-bottom: 20px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  line-height: 1.7; color: #92400e;
+}
+.firebase-notice strong { display: block; margin-bottom: 4px; font-size: 12px; }
+.firebase-notice a { color: #c49020; border-bottom: 1px solid currentColor; }
+</style>
+
+<!-- Thread detail modal -->
+<div class="thread-modal-overlay" id="thread-modal">
+  <div class="thread-modal-box">
+    <div class="thread-modal-header">
+      <div>
+        <h3 id="modal-thread-title">Loading…</h3>
+        <p id="modal-thread-meta"></p>
+      </div>
+      <span class="modal-close-btn" id="modal-close-btn">✕ Close</span>
+    </div>
+    <div id="modal-replies">
+      <p style="font-style:italic;color:var(--ink-lt);font-size:15px;padding:16px 0;">Loading replies…</p>
+    </div>
+    <div class="thread-reply-form">
+      <div class="form-row">
+        <input type="text" id="reply-author" placeholder="Your name *">
+        <input type="text" id="reply-email-hp" style="display:none" tabindex="-1">
+        <button class="btn-submit" id="post-reply-btn" style="padding:10px 16px;font-size:11px;">Post Reply →</button>
+      </div>
+      <textarea id="reply-text" placeholder="Write your reply… (Malayalam or English welcome)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY SECTION -->
 <section class="section" id="community">
   <div class="section-header">
     <h2>Readers &amp; <em>Writers</em></h2>
-    <a href="#" class="section-link">Join the Community →</a>
+    <span class="live-badge"><span class="live-dot"></span> Live Discussion</span>
   </div>
   <div class="community-layout">
-    <!-- Forum threads -->
     <div>
-      <div class="sidebar-label" style="margin-bottom:0;">Discussion Threads</div>
-      <ul class="forum-threads">
-        <li class="forum-thread">
-          <div class="thread-icon">💬</div>
-          <div class="thread-body">
-            <div class="thread-tag">Reading Circle</div>
-            <h4>Which Malayalam novel would you recommend to a first-time reader of the language?</h4>
-            <p>Started by Amal · 3 days ago · Highly active</p>
-          </div>
-          <div class="thread-stats">
-            <span>38 replies</span>
-            <span style="color:var(--gold);">🔥 Hot</span>
-          </div>
-        </li>
-        <li class="forum-thread">
-          <div class="thread-icon">🌍</div>
-          <div class="thread-body">
-            <div class="thread-tag">World Literature</div>
-            <h4>Magical Realism beyond Márquez — underrated international novels worth reading</h4>
-            <p>Started by Devika R. · 1 week ago</p>
-          </div>
-          <div class="thread-stats">
-            <span>24 replies</span>
-          </div>
-        </li>
-        <li class="forum-thread">
-          <div class="thread-icon">✍️</div>
-          <div class="thread-body">
-            <div class="thread-tag">Writers' Corner</div>
-            <h4>How do you write in Malayalam while living outside Kerala? The diaspora author's dilemma</h4>
-            <p>Started by Meena V. · 5 days ago</p>
-          </div>
-          <div class="thread-stats">
-            <span>31 replies</span>
-            <span style="color:var(--sage);">New</span>
-          </div>
-        </li>
-        <li class="forum-thread">
-          <div class="thread-icon">📖</div>
-          <div class="thread-body">
-            <div class="thread-tag">Reviews</div>
-            <h4>Indian novels in translation — what's lost, what's found when crossing languages?</h4>
-            <p>Started by Rajan K. · 2 weeks ago</p>
-          </div>
-          <div class="thread-stats">
-            <span>17 replies</span>
-          </div>
-        </li>
-        <li class="forum-thread">
-          <div class="thread-icon">🎭</div>
-          <div class="thread-body">
-            <div class="thread-tag">Malayalam Poetry</div>
-            <h4>Sugathakumari vs the new generation — does form still matter in Malayalam poetry?</h4>
-            <p>Started by Priya M. · Yesterday</p>
-          </div>
-          <div class="thread-stats">
-            <span>9 replies</span>
-            <span style="color:var(--sage);">New</span>
-          </div>
+      <div class="sidebar-label" style="margin-bottom:12px;">💬 Discussion Threads — Live &amp; Realtime</div>
+
+   
+
+      <ul class="forum-threads" id="live-thread-list">
+        <!-- Threads load here live from Firebase -->
+        <li style="padding:20px 0;font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--ink-lt);">
+          ⟳ Connecting to live discussions…
         </li>
       </ul>
+
+      <!-- New thread form -->
+      <div class="new-thread-form">
+        <h4>Start a New Discussion</h4>
+        <div class="form-row">
+          <input type="text" id="new-thread-author" placeholder="Your name *">
+          <select id="new-thread-cat">
+            <option>Reading Circle</option>
+            <option>Malayalam Poetry</option>
+            <option>World Literature</option>
+            <option>Indian Literature</option>
+            <option>Writers' Corner</option>
+            <option>Reviews</option>
+            <option>General</option>
+          </select>
+        </div>
+        <input type="text" id="new-thread-title" placeholder="Your discussion topic or question *" style="width:100%;margin-bottom:10px;">
+        <button class="btn-submit" id="post-thread-btn" style="width:auto;padding:12px 28px;">
+          Post Discussion →
+        </button>
+      </div>
     </div>
 
     <!-- Events sidebar -->
     <div class="events-sidebar">
       <h3>Upcoming <em>Events</em></h3>
+
+      <a href="https://sahitya-akademi.gov.in/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
       <div class="event-item">
-        <div class="event-date"><strong>01</strong>MAR</div>
+        <div class="event-date"><strong>30</strong>MAR</div>
         <div class="event-info">
-          <h4>M.T. Vasudevan Nair Reading Circle</h4>
-          <p>Monthly discussion · Online · Free entry</p>
+          <h4>Sahitya Akademi — Festival of Letters 2026</h4>
+          <p>Rabindra Bhawan, New Delhi · 30 Mar–4 Apr · 700+ writers · 50+ languages · Free entry</p>
         </div>
       </div>
+      </a>
+
+      <a href="https://thebookerprizes.com/the-booker-library/prize-years/international/2026" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
       <div class="event-item">
-        <div class="event-date"><strong>08</strong>MAR</div>
+        <div class="event-date"><strong>31</strong>MAR</div>
         <div class="event-info">
-          <h4>Women Writers of Kerala — A Centenary Conversation</h4>
-          <p>Panel Discussion · Kochi &amp; Livestream</p>
+          <h4>International Booker Prize 2026 — Shortlist Revealed</h4>
+          <p>6 finalists announced · bookerprizes.com · Winner: May 19 at Tate Modern, London</p>
         </div>
       </div>
+      </a>
+
+      <a href="https://worldliteraturetoday.org/events-news" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
       <div class="event-item">
-        <div class="event-date"><strong>15</strong>MAR</div>
+        <div class="event-date"><strong>2</strong>APR</div>
         <div class="event-info">
-          <h4>New Writers Open Mic</h4>
-          <p>Submit your prose or poetry · Deadline Mar 10</p>
+          <h4>WLT Puterbaugh Lit Fest — Haleh Liza Gafori (Rumi Translator)</h4>
+          <p>Univ. of Oklahoma, Norman · Apr 2–3 · WLT Centenary Year · worldliteraturetoday.org</p>
         </div>
       </div>
+      </a>
+
+      <a href="https://jlflitfest.org/spain" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
       <div class="event-item">
-        <div class="event-date"><strong>22</strong>MAR</div>
+        <div class="event-date"><strong>11</strong>JUN</div>
         <div class="event-info">
-          <h4>World Literature Book Club: Latin American Edition</h4>
-          <p>Online · All readers welcome</p>
+          <h4>JLF Valladolid 2026 — First India-Spain Literary Edition</h4>
+          <p>Valladolid, Spain · Jun 11–14 · India-Spain Dual Year of Culture · jaipurliteraturefestival.org</p>
         </div>
       </div>
+      </a>
+
+      <a href="https://thebookerprizes.com/media-centre/press-releases/longlist-announced-for-the-international-booker-prize-2026" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
       <div class="event-item">
-        <div class="event-date"><strong>05</strong>APR</div>
+        <div class="event-date"><strong>15</strong>MAY</div>
         <div class="event-info">
-          <h4>Yellow Feather Annual Literary Awards</h4>
-          <p>Nominations open · Readers vote</p>
+          <h4>Int'l Booker Shortlist Readings — Bristol Beacon, UK</h4>
+          <p>Bristol Beacon's Lantern Hall · Shortlisted authors &amp; translators · Translated By Festival</p>
         </div>
       </div>
+      </a>
+
+      <a href="https://dcbookstore.com/books/newreleases" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block;">
+      <div class="event-item">
+        <div class="event-date"><strong>NOW</strong></div>
+        <div class="event-info">
+          <h4>DC Books New Releases — Kalachi, Korapappanu &amp; More</h4>
+          <p>dcbookstore.com · New arrivals in stock · Order online with free delivery above ₹500</p>
+        </div>
+      </div>
+      </a>
+
       <div style="margin-top:24px;">
-        <a href="#" class="btn-gold" style="display:block;text-align:center;padding:14px;">View All Events →</a>
+        <a href="https://sahitya-akademi.gov.in/" target="_blank" rel="noopener" class="btn-gold" style="display:block;text-align:center;padding:14px;">View All Events →</a>
       </div>
     </div>
   </div>
@@ -1318,22 +2951,22 @@ footer {
 
     <div class="writer-form-side">
       <h3>Submit Your Writing</h3>
-      <p>Reviews, essays, stories, poetry — all are welcome. Our editorial team reviews every submission.</p>
+      <p>Reviews, essays, stories, poetry — all are welcome. Our editorial team reviews every submission within 5 working days.</p>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Full name">
+          <label>Your Name *</label>
+          <input type="text" id="wr-name" placeholder="Full name">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com">
+          <label>Email *</label>
+          <input type="email" id="wr-email" placeholder="your@email.com">
         </div>
       </div>
 
       <div class="form-group">
-        <label>Submission Type</label>
-        <select>
+        <label>Submission Type *</label>
+        <select id="wr-type">
           <option value="">Select type...</option>
           <option>Book Review</option>
           <option>Short Story</option>
@@ -1346,17 +2979,18 @@ footer {
 
       <div class="form-group">
         <label>Title / Book Being Reviewed</label>
-        <input type="text" placeholder="Title of your piece or book reviewed">
+        <input type="text" id="wr-title" placeholder="Title of your piece or book reviewed">
       </div>
 
       <div class="form-group">
-        <label>Your Submission or Message</label>
-        <textarea placeholder="Paste your writing here, or tell us what you'd like to submit..."></textarea>
+        <label>Your Submission or Message *</label>
+        <textarea id="wr-text" placeholder="Paste your writing here, or tell us what you'd like to submit..."></textarea>
       </div>
 
-      <button class="btn-submit" onclick="alert('Thank you! Our editorial team will review your submission and get back to you within 5 working days.')">
-        Submit to Yellow Feather →
-      </button>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <button class="btn-submit" id="wr-submit-btn">Submit to Yellow Feather →</button>
+        <div id="wr-msg" style="font-size:13px;"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1367,10 +3001,10 @@ footer {
   <h2>The Yellow Feather<br><em>Weekly Digest</em></h2>
   <p>New arrivals, literary trends, event invitations, and curated reading picks — delivered to your inbox every Thursday.</p>
   <div class="newsletter-form">
-    <input type="email" placeholder="Your email address...">
-    <button>Subscribe</button>
+    <input type="email" id="sub-email" placeholder="Your email address..." autocomplete="email">
+    <button id="sub-btn">Subscribe</button>
   </div>
-  <div class="newsletter-note">No spam. Unsubscribe anytime. Read gently, dream deeply.</div>
+  <div class="newsletter-note" id="sub-note">No spam. Unsubscribe anytime. Read gently, dream deeply.</div>
 </section>
 
 <!-- FOOTER -->
@@ -1449,18 +3083,6 @@ document.querySelectorAll('.trend-card, .review-card, .arrival-item, .forum-thre
   observer.observe(el);
 });
 
-// Newsletter form
-document.querySelector('.newsletter-form button').addEventListener('click', () => {
-  const input = document.querySelector('.newsletter-form input');
-  if (input.value && input.value.includes('@')) {
-    input.value = '';
-    document.querySelector('.newsletter-note').textContent = '✓ You\'re subscribed! First digest arrives Thursday.';
-    document.querySelector('.newsletter-note').style.color = 'rgba(200,230,200,0.8)';
-  } else {
-    input.style.borderColor = '#a03820';
-    input.placeholder = 'Please enter a valid email...';
-  }
-});
 </script>
 
 </body>
