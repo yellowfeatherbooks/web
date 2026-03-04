@@ -206,6 +206,101 @@ nav {
 .btn-read:hover svg { transform: translateX(4px); }
 
 /* Hero sidebar */
+/* ─── HERO VIDEO PANEL ─── */
+.hero-video {
+  background: #0c0908;
+  display: flex; flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  position: relative;
+}
+.hero-vid-head {
+  padding: 18px 26px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.hero-vid-eyebrow {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+}
+.hero-vid-status {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(242,234,216,0.3);
+}
+.hero-vid-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  flex-shrink: 0;
+}
+.hero-vid-wrap video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; background: #000; display: none;
+}
+.hero-vid-ph {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px;
+  background: linear-gradient(160deg, #1c1610 0%, #0e0b08 100%);
+  cursor: pointer;
+}
+.hero-vid-ph-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 0 0 12px rgba(200,144,32,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-vid-ph:hover .hero-vid-ph-icon {
+  transform: scale(1.09);
+  box-shadow: 0 0 0 20px rgba(200,144,32,0.09);
+}
+.hero-vid-ph p {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(242,234,216,0.32);
+}
+.hero-vid-info {
+  flex: 1; padding: 18px 26px; display: flex; flex-direction: column;
+  justify-content: space-between; overflow: hidden;
+}
+.hero-vid-title {
+  font-family: var(--serif); font-size: 16px;
+  color: rgba(242,234,216,0.32); font-style: italic;
+  line-height: 1.4; margin-bottom: 6px;
+}
+.hero-vid-meta {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
+  color: rgba(242,234,216,0.25); text-transform: uppercase; margin-bottom: 12px;
+}
+.hero-vid-categories {
+  font-family: var(--body); font-size: 12px;
+  color: rgba(242,234,216,0.2); line-height: 1.9;
+}
+.hero-vid-footer {
+  padding: 14px 26px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex; gap: 0; flex-shrink: 0;
+}
+.hero-vid-btn {
+  flex: 1; padding: 11px 18px;
+  background: var(--gold); color: var(--ink);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; border: none; cursor: pointer;
+  font-weight: 700; text-align: left; transition: background 0.2s;
+}
+.hero-vid-btn:hover { background: var(--gold-lt); }
+.hero-vid-clear {
+  padding: 11px 16px;
+  background: rgba(255,255,255,0.04); color: rgba(242,234,216,0.35);
+  font-family: var(--mono); font-size: 11px;
+  border: 1px solid rgba(200,144,32,0.1); border-left: none;
+  cursor: pointer; transition: background 0.2s;
+}
+.hero-vid-clear:hover { background: rgba(255,255,255,0.09); }
+
 .hero-sidebar {
   display: flex; flex-direction: column;
   background: var(--parchment);
@@ -214,8 +309,6 @@ nav {
   flex: 1;
   padding: 40px 36px;
   border-bottom: 1px solid var(--rule);
-
-  max-height: 520px;
   overflow-y: auto;
 }
 .sidebar-label {
@@ -390,8 +483,7 @@ nav {
 .arrival-featured {
   background: var(--ink);
   color: var(--parchment);
-  padding: 48px 44px;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  display: flex; flex-direction: row; align-items: stretch;
   min-height: 420px;
   position: relative;
   overflow: hidden;
@@ -406,6 +498,44 @@ nav {
   top: -20px; right: -20px;
   opacity: 0.07;
   line-height: 1;
+}
+.arrival-feat-img-wrap {
+  width: 42%;
+  min-width: 160px;
+  height: auto;
+  min-height: 420px;
+  background: rgba(0,0,0,0.3);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.arrival-feat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+  position: absolute;
+  inset: 0;
+}
+.arrival-featured:hover .arrival-feat-img-wrap img {
+  transform: scale(1.05);
+}
+.arrival-feat-content {
+  padding: 36px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.arrival-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .arrival-featured-tag {
   font-family: var(--mono);
@@ -894,172 +1024,196 @@ footer {
   text-transform: uppercase;
 }
 
-/* ─── MOBILE ─── */
+/* ─── MOBILE (≤ 900px tablets & phones) ─── */
 @media (max-width: 900px) {
 
-  /* Global base */
-  body { font-size: 17px; line-height: 1.8; }
+  /* ── Global ── */
+  body { font-size: 18px !important; line-height: 1.85; }
+
+  /* Force ALL tiny mono/label text to a readable floor */
+  [class*="mono"], [class*="-eye"], [class*="-cat"],
+  [class*="-badge"], [class*="-tag"], [class*="-meta"],
+  [class*="-label"], [class*="-src"], [class*="-who"],
+  [class*="-hd"], [class*="-en"], [class*="-genre"] {
+    font-size: max(13px, 0.8em) !important;
+    letter-spacing: 1px !important;
+  }
 
   /* Topbar */
-  .topbar { font-size: 13px; letter-spacing: 1.5px; padding: 10px 16px; }
+  .topbar { font-size: 14px !important; letter-spacing: 1px; padding: 10px 16px; }
 
   /* Nav */
-  nav { padding: 0 20px; }
+  nav { padding: 0 20px; height: auto; min-height: 60px; }
   .nav-links { display: none; }
-  .nav-logo-text { font-size: 17px; }
-  .nav-logo-text span { font-size: 12px; letter-spacing: 2px; }
+  .nav-logo-text { font-size: 18px; }
+  .nav-logo-text span { font-size: 13px !important; letter-spacing: 2px !important; }
 
   /* Hero */
   .hero { grid-template-columns: 1fr; }
-  .hero-main { padding: 48px 24px; }
+  .hero-main { padding: 44px 24px; }
   .hero-sidebar { display: none; }
-  .hero-eyebrow { font-size: 13px; letter-spacing: 3px; }
-  .hero-excerpt { font-size: 17px; }
-  .hero-tag { font-size: 12px; letter-spacing: 2px; }
-  .hero-meta { font-size: 13px; }
-  .btn-read { font-size: 13px; letter-spacing: 2px; padding: 13px 24px; }
+  .hero-eyebrow { font-size: 14px !important; }
+  .hero-excerpt { font-size: 18px; line-height: 1.75; }
+  .hero-tag { font-size: 13px !important; }
+  .hero-meta { font-size: 14px !important; }
+  .btn-read { font-size: 14px !important; letter-spacing: 1.5px; padding: 14px 24px; }
 
   /* Date strip */
   .date-strip { flex-wrap: wrap; }
-  .date-strip-item { font-size: 12px; letter-spacing: 1px; padding: 12px 16px; }
+  .date-strip-item { font-size: 13px !important; letter-spacing: 0.5px; padding: 12px 16px; }
 
   /* Sections */
-  .section { padding: 48px 24px; }
-  .section-header h2 { font-size: 28px; }
-  .section-link { font-size: 13px; }
+  .section { padding: 44px 22px; }
+  .section-header h2 { font-size: 30px; }
+  .section-link { font-size: 14px !important; }
 
   /* Trends */
   .trends-grid { grid-template-columns: 1fr; }
-  .trend-card { border-right: none; border-bottom: 1px solid var(--rule); }
-  .trend-card-region { font-size: 12px; letter-spacing: 2px; }
-  .trend-card h3 { font-size: 21px; }
-  .trend-card p { font-size: 16px; }
-  .trend-card-footer { font-size: 12px; letter-spacing: 1px; }
+  .trend-card { border-right: none; border-bottom: 1px solid var(--rule); padding: 28px 22px; }
+  .trend-card-region { font-size: 13px !important; }
+  .trend-card h3 { font-size: 22px; }
+  .trend-card p { font-size: 17px; }
+  .trend-card-footer { font-size: 13px !important; }
 
   /* New Arrivals */
-  .arrivals-layout { grid-template-columns: 1fr; }
+  .arrivals-layout { grid-template-columns: 1fr; gap: 24px; }
+  .arrival-featured { padding: 0; min-height: auto; flex-direction: column; }
+  .arrival-feat-img-wrap { width: 100%; min-width: unset; height: 240px; min-height: unset; }
+  .arrival-feat-content { padding: 24px 22px; justify-content: flex-start; }
   .arrival-featured h3 { font-size: 26px; }
-  .arrival-featured p { font-size: 16px; }
-  .arrival-featured-tag { font-size: 12px; letter-spacing: 2px; }
-  .arrival-badge { font-size: 12px; letter-spacing: 1.5px; }
-  .arrival-title { font-size: 17px; }
-  .arrival-author { font-size: 14px; }
+  .arrival-featured .author { font-size: 16px !important; }
+  .arrival-featured p { font-size: 16px !important; }
+  .arrival-featured-tag { font-size: 13px !important; }
+  .arrival-badge { font-size: 13px !important; }
+  .arrival-info h4 { font-size: 18px; }
+  .arrival-info .author { font-size: 15px !important; }
+  .arrival-info p { font-size: 15px !important; }
+  .arrival-price { font-size: 15px !important; }
+  .arrival-thumb { width: 72px; height: 90px; font-size: 28px !important; }
+  .btn-gold { font-size: 13px !important; letter-spacing: 1.5px; padding: 12px 20px; }
 
   /* Reviews */
   .reviews-grid { grid-template-columns: 1fr; }
-  .review-card-title { font-size: 17px; }
-  .review-card-body { font-size: 15px; }
-  .review-meta { font-size: 12px; }
 
   /* Community / Newsletter */
   .community-layout { grid-template-columns: 1fr; }
-  .newsletter { padding: 48px 24px; }
+  .newsletter { padding: 44px 22px; }
   .newsletter-form { flex-direction: column; }
-  .newsletter-form input { border-right: 1px solid rgba(200,144,32,0.3); border-bottom: none; }
-  .newsletter-form button { font-size: 13px; letter-spacing: 2px; padding: 14px 28px; }
+  .newsletter-form input { border-right: 1px solid rgba(200,144,32,0.3); border-bottom: none; font-size: 17px; }
+  .newsletter-form button { font-size: 14px !important; letter-spacing: 1.5px; padding: 15px 28px; }
 
-  /* Writer corner */
+  /* Writer */
   .writer-layout { grid-template-columns: 1fr; }
   .writer-visual h3 { font-size: 28px; }
-  .writer-visual p { font-size: 16px; }
-  .writer-perks li { font-size: 15px; }
-  .form-group label { font-size: 12px; letter-spacing: 2px; }
+  .writer-visual p { font-size: 17px; }
+  .writer-perks li { font-size: 16px; }
+  .form-group label { font-size: 13px !important; letter-spacing: 1.5px; }
   .form-group input,
   .form-group textarea,
-  .form-group select { font-size: 16px; }
-  .btn-submit { font-size: 13px; letter-spacing: 2px; }
+  .form-group select { font-size: 17px; padding: 13px 16px; }
+  .btn-submit { font-size: 14px !important; letter-spacing: 2px; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  footer { padding: 48px 24px 24px; }
+  footer { padding: 44px 22px 24px; }
   .footer-brand p { font-size: 15px; }
-  .footer-col h4 { font-size: 12px; letter-spacing: 2.5px; }
+  .footer-col h4 { font-size: 13px !important; }
   .footer-col li { font-size: 15px; }
-  .footer-bottom p { font-size: 12px; }
+  .footer-bottom p { font-size: 13px !important; }
 
-  /* ── Sahithyam section ── */
+  /* ── Sahithyam ── */
   .mls-brand h2 { font-size: 26px; }
-  .mls-brand p { font-size: 13px; }
-  .mls-brand-eye { font-size: 11px; letter-spacing: 2.5px; }
+  .mls-brand p  { font-size: 14px !important; }
+  .mls-brand-eye { font-size: 13px !important; }
+  .mls-tab-ml { font-size: 16px; }
+  .mls-tab-en { font-size: 11px !important; }
+  .mls-date span { font-size: 13px !important; }
 
-  /* Category tabs */
-  .mls-tab-ml { font-size: 15px; }
-  .mls-tab-en { font-size: 9px; letter-spacing: 1px; }
+  .mls-feat h3   { font-size: 26px; }
+  .mls-feat-sub  { font-size: 17px; }
+  .mls-feat-body { font-size: 17px; line-height: 1.8; }
+  .mls-feat-ml   { font-size: 16px; line-height: 1.9; }
+  .mls-feat-badge { font-size: 12px !important; }
+  .mls-byline-info b   { font-size: 15px !important; }
+  .mls-byline-info span { font-size: 13px !important; }
 
-  /* Date bar */
-  .mls-date span { font-size: 12px; letter-spacing: 1.5px; }
+  .mls-sidebar-hd { font-size: 13px !important; }
+  .mls-si-cat   { font-size: 13px !important; }
+  .mls-si-title { font-size: 17px; line-height: 1.45; }
+  .mls-si-meta  { font-size: 13px !important; }
+  .mls-new      { font-size: 11px !important; }
+  .mls-si-n     { font-size: 16px !important; }
 
-  /* Featured article */
-  .mls-feat h3 { font-size: 26px; }
-  .mls-feat-sub { font-size: 16px; }
-  .mls-feat-body { font-size: 16px; line-height: 1.8; }
-  .mls-feat-ml { font-size: 15px; line-height: 1.9; }
-  .mls-feat-badge { font-size: 10px; letter-spacing: 2px; }
-  .mls-byline-info b { font-size: 13px; }
-  .mls-byline-info span { font-size: 12px; }
+  .mls-col-name       { font-size: 22px; }
+  .mls-col-name small { font-size: 12px !important; }
+  .mls-col-more       { font-size: 13px !important; }
+  .mls-art-cat   { font-size: 13px !important; }
+  .mls-art h5    { font-size: 17px; line-height: 1.4; }
+  .mls-art-snip  { font-size: 15px; line-height: 1.65; -webkit-line-clamp: 3; }
+  .mls-art-by    { font-size: 13px !important; }
+  .mls-sec-hd h4 { font-size: 13px !important; }
 
-  /* This week sidebar */
-  .mls-sidebar-hd { font-size: 12px; letter-spacing: 2px; }
-  .mls-si-cat { font-size: 12px; letter-spacing: 1px; }
-  .mls-si-title { font-size: 16px; line-height: 1.4; }
-  .mls-si-meta { font-size: 12px; }
-  .mls-new { font-size: 9px; letter-spacing: 1px; }
+  .mls-pq-src { font-size: 13px !important; }
+  .mls-pq-q   { font-size: 18px; line-height: 1.7; }
+  .mls-pq-who { font-size: 13px !important; }
 
-  /* 3-column grid */
-  .mls-col-name { font-size: 20px; }
-  .mls-col-name small { font-size: 11px; letter-spacing: 1.5px; }
-  .mls-col-more { font-size: 12px; letter-spacing: 1px; }
-  .mls-art-cat { font-size: 11px; letter-spacing: 1px; }
-  .mls-art h5 { font-size: 16px; line-height: 1.4; }
-  .mls-art-snip { font-size: 14px; line-height: 1.6; }
-  .mls-art-by { font-size: 12px; }
-  .mls-sec-hd h4 { font-size: 11px; letter-spacing: 2px; }
+  .mls-author-ml    { font-size: 16px; }
+  .mls-author-en    { font-size: 13px !important; }
+  .mls-author-genre { font-size: 12px !important; }
 
-  /* Pull quotes */
-  .mls-pq-src { font-size: 11px; letter-spacing: 2px; }
-  .mls-pq-q { font-size: 17px; line-height: 1.7; }
-  .mls-pq-who { font-size: 12px; }
+  .mls-cta h3    { font-size: 22px; }
+  .mls-cta p     { font-size: 14px !important; }
+  .mls-cta-eye   { font-size: 13px !important; }
+  .mls-cta-btn   { font-size: 13px !important; letter-spacing: 1.5px; padding: 14px 22px; }
 
-  /* Authors strip */
-  .mls-author-ml { font-size: 15px; }
-  .mls-author-en { font-size: 11px; }
-  .mls-author-genre { font-size: 10px; letter-spacing: 1.5px; }
-
-  /* CTA band */
-  .mls-cta h3 { font-size: 20px; }
-  .mls-cta p { font-size: 12px; }
-  .mls-cta-eye { font-size: 11px; letter-spacing: 2px; }
-  .mls-cta-btn { font-size: 11px; letter-spacing: 2px; padding: 13px 22px; }
-
-  /* Video section */
-  .vid-brand h2 { font-size: 18px; }
-  .vid-brand-eye { font-size: 11px; }
-  .vid-tab { font-size: 11px; letter-spacing: 1px; padding: 10px 12px; }
-  .vid-caption h3 { font-size: 18px; }
-  .vid-caption-tag { font-size: 11px; letter-spacing: 2px; }
-  .vid-caption-meta { font-size: 12px; }
-  .vid-cat-label { font-size: 11px; letter-spacing: 1px; }
-  .vid-cat-count { font-size: 13px; }
-  .vid-item-cat { font-size: 11px; letter-spacing: 1px; }
-  .vid-item-title { font-size: 14px; }
-  .vid-item-meta { font-size: 11px; }
-  .vid-playlist-hd { font-size: 11px; letter-spacing: 2px; }
+  /* Video */
+  .vid-brand h2      { font-size: 20px; }
+  .vid-brand-eye     { font-size: 13px !important; }
+  .vid-tab           { font-size: 13px !important; padding: 10px 12px; }
+  .vid-caption h3    { font-size: 20px; }
+  .vid-caption-tag   { font-size: 13px !important; }
+  .vid-caption-meta  { font-size: 13px !important; }
+  .vid-cat-label     { font-size: 13px !important; }
+  .vid-cat-count     { font-size: 14px; }
+  .vid-item-cat      { font-size: 13px !important; }
+  .vid-item-title    { font-size: 15px; }
+  .vid-item-meta     { font-size: 13px !important; }
+  .vid-playlist-hd   { font-size: 13px !important; }
+  .vid-add-text      { font-size: 13px !important; }
 }
 
-/* ─── SMALL PHONES (≤ 480px) — extra bump ─── */
+/* ─── SMALL PHONES (≤ 480px) ─── */
 @media (max-width: 480px) {
-  body { font-size: 16px; }
+  body { font-size: 17px !important; }
   .hero-main { padding: 36px 18px; }
-  .section { padding: 36px 18px; }
-  .mls-feat h3 { font-size: 23px; }
-  .mls-art h5 { font-size: 15px; }
-  .mls-art-snip { font-size: 14px; }
-  .mls-si-title { font-size: 15px; }
-  .trend-card h3 { font-size: 19px; }
+  .section   { padding: 36px 18px; }
+  .newsletter { padding: 36px 18px; }
+  footer { padding: 36px 18px 20px; }
+
+  /* Section titles */
+  .section-header h2 { font-size: 26px; }
+  .mls-feat h3 { font-size: 22px; }
+  .trend-card h3 { font-size: 20px; }
+
+  /* Article text */
+  .mls-art h5    { font-size: 16px; }
+  .mls-art-snip  { font-size: 14px; }
+  .mls-si-title  { font-size: 16px; }
+  .mls-feat-body { font-size: 16px; }
+
+  /* Arrivals */
+  .arrival-info h4 { font-size: 17px; }
+  .arrival-featured h3 { font-size: 23px; }
+  .arrival-feat-img-wrap { height: 190px; min-height: unset; }
+  .arrival-feat-content { padding: 18px 20px; }
+
+  /* Layout collapses */
   .vid-cats { grid-template-columns: 1fr 1fr; margin: 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .mls-tabs { flex-wrap: wrap; }
+  .date-strip { display: none; } /* too crowded on tiny screens */
 }
 
 /* ─── ANIMATIONS ─── */
@@ -1142,6 +1296,7 @@ footer {
     </div>
     <div class="hero-meta fade-up delay-4">Mathrubhumi Book of the Year 2026 &nbsp;·&nbsp; NYT Best Books 2025 &nbsp;·&nbsp; Kerala Literature</div>
   </div>
+
     <aside class="hero-sidebar">
     <div class="hero-sidebar-top">
       <div class="sidebar-label" style="display:flex;align-items:center;justify-content:space-between;">
@@ -1157,12 +1312,138 @@ footer {
         </li>
       </ul>
     </div>
-    <div class="hero-quote-block">
-      <div class="hero-quote">"ഒരു കഥ കഴിഞ്ഞ് മറ്റൊന്ന് — ജീവിതം അങ്ങനെ ഒഴുകുന്നു."</div>
-      <div class="hero-quote-attr">— One story ends, another begins. Life flows like that. — M.T. Vasudevan Nair</div>
-    </div>
+    <!-- ── FEATURED VIDEO (replaces quote block) ── -->
+    <div id="videos" style="background:#0c0908;border-top:1px solid rgba(0,0,0,0.15);flex-shrink:0;">
+
+      <!-- Label bar -->
+      <div style="padding:11px 20px;display:flex;align-items:center;justify-content:space-between;
+                  border-bottom:1px solid rgba(255,255,255,0.06);">
+        <span style="font-family:var(--mono);font-size:8px;letter-spacing:4px;
+                     text-transform:uppercase;color:var(--gold);">📽 Featured Video</span>
+        <span id="hvid-status" style="font-family:var(--mono);font-size:8px;letter-spacing:2px;
+              text-transform:uppercase;color:rgba(242,234,216,0.3);">No video</span>
+      </div>
+
+      <!-- 16:9 player -->
+      <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;">
+        <div id="hvid-ph" onclick="document.getElementById('hvid-input').click()"
+             style="position:absolute;inset:0;display:flex;flex-direction:column;
+                    align-items:center;justify-content:center;gap:14px;cursor:pointer;
+                    background:linear-gradient(160deg,#1c1610 0%,#0e0b08 100%);">
+          <div id="hvid-ph-icon"
+               style="width:56px;height:56px;border-radius:50%;background:var(--gold);
+                      display:flex;align-items:center;justify-content:center;font-size:22px;
+                      box-shadow:0 0 0 12px rgba(200,144,32,0.12);
+                      transition:transform 0.2s,box-shadow 0.2s;">▶</div>
+          <p style="font-family:var(--mono);font-size:8px;letter-spacing:2px;
+                    text-transform:uppercase;color:rgba(242,234,216,0.28);
+                    text-align:center;padding:0 20px;line-height:1.7;">
+            Save featured-video.mp4 here<br>or click to load</p>
+        </div>
+        <video id="hvid-player" controls preload="metadata"
+               style="position:absolute;inset:0;width:100%;height:100%;
+                      object-fit:contain;background:#000;display:none;"></video>
+      </div>
+
+      <!-- Caption -->
+      <div style="padding:10px 20px 12px;">
+        <div id="hvid-title"
+             style="font-family:var(--serif);font-size:13px;font-style:italic;
+                    color:rgba(242,234,216,0.3);line-height:1.4;margin-bottom:2px;">
+          Awaiting video…</div>
+        <div id="hvid-meta"
+             style="font-family:var(--mono);font-size:8px;letter-spacing:2px;
+                    text-transform:uppercase;color:rgba(242,234,216,0.2);">
+          Yellow Feather Books</div>
+      </div>
+
+      <!-- Controls -->
+      <input type="file" id="hvid-input"
+             accept="video/mp4,video/webm,video/ogg,video/quicktime,.mp4,.webm,.mov,.mkv,.avi"
+             style="display:none;" onchange="hvidFileChosen(this)"/>
+      <button onclick="document.getElementById('hvid-input').click()"
+              style="width:100%;padding:13px 20px;background:var(--gold);color:var(--ink);
+                     font-family:var(--mono);font-size:9px;letter-spacing:3px;
+                     text-transform:uppercase;border:none;cursor:pointer;font-weight:700;
+                     text-align:left;transition:background 0.2s;display:block;"
+              onmouseover="this.style.background='var(--gold-lt)'"
+              onmouseout="this.style.background='var(--gold)'">
+        📁 &nbsp;Update Featured Video
+      </button>
+
+      <script>
+      (function(){
+        var player = document.getElementById('hvid-player');
+        var ph     = document.getElementById('hvid-ph');
+        var icon   = document.getElementById('hvid-ph-icon');
+        var objURL = null;
+
+        ph.addEventListener('mouseenter', function(){
+          icon.style.transform='scale(1.1)';
+          icon.style.boxShadow='0 0 0 20px rgba(200,144,32,0.09)';
+        });
+        ph.addEventListener('mouseleave', function(){
+          icon.style.transform='';
+          icon.style.boxShadow='0 0 0 12px rgba(200,144,32,0.12)';
+        });
+
+        function setPlaying(title, meta) {
+          ph.style.display     = 'none';
+          player.style.display = 'block';
+          document.getElementById('hvid-title').textContent = title;
+          document.getElementById('hvid-title').style.color = 'var(--parchment)';
+          document.getElementById('hvid-meta').textContent  = meta || 'Yellow Feather Books';
+          document.getElementById('hvid-status').textContent = '▶ Ready';
+          document.getElementById('hvid-status').style.color = 'rgba(200,144,32,0.7)';
+        }
+        function setEmpty() {
+          player.style.display = 'none';
+          ph.style.display     = '';
+          document.getElementById('hvid-title').textContent = 'Awaiting video…';
+          document.getElementById('hvid-title').style.color = 'rgba(242,234,216,0.3)';
+          document.getElementById('hvid-meta').textContent  = 'Yellow Feather Books';
+          document.getElementById('hvid-status').textContent = 'No video';
+          document.getElementById('hvid-status').style.color = '';
+        }
+
+        /* Preload featured-video.mp4 from same folder */
+        player.src = './featured-video.mp4';
+        player.oncanplay = function() {
+          setPlaying('Featured Video', 'Yellow Feather Books');
+          player.oncanplay = null; player.onerror = null;
+        };
+        player.onerror = function() {
+          player.removeAttribute('src');
+          setEmpty();
+          player.oncanplay = null; player.onerror = null;
+        };
+        player.load();
+
+        window.hvidFileChosen = function(input) {
+          var file = input.files && input.files[0];
+          if (!file) return;
+          if (objURL) URL.revokeObjectURL(objURL);
+          objURL = URL.createObjectURL(file);
+          player.src = objURL;
+          player.load(); player.play();
+          var mb = (file.size / 1048576).toFixed(1);
+          setPlaying(file.name.replace(/\.[^/.]+$/, ''), 'Yellow Feather Books · ' + mb + ' MB');
+        };
+
+        window.hvidClear = function() {
+          player.pause();
+          if (objURL) { URL.revokeObjectURL(objURL); objURL = null; }
+          player.removeAttribute('src');
+          document.getElementById('hvid-input').value = '';
+          setEmpty();
+        };
+      })();
+      </script>
+
+    </div><!-- end hero-video -->
   </aside>
 </section>
+
 
 <!-- DATE STRIP -->
 <div class="date-strip">
@@ -1958,197 +2239,6 @@ footer {
 
 </section>
 
-<!-- VIDEO SECTION -->
-<section class="vid-section" id="videos">
-
-  <!-- Head: brand + category tabs -->
-  <div class="vid-head">
-    <div class="vid-brand">
-      <div class="vid-brand-eye">Yellow Feather Books</div>
-      <h2>📽 <em>Watch</em> — Book Reviews &amp; More</h2>
-    </div>
-    <nav class="vid-tabs">
-      <a href="#videos" class="vid-tab active">All</a>
-      <a href="#videos" class="vid-tab">Book Reviews</a>
-      <a href="#videos" class="vid-tab">Announcements</a>
-      <a href="#videos" class="vid-tab">Author Talks</a>
-      <a href="#videos" class="vid-tab">Unboxing</a>
-    </nav>
-  </div>
-
-  <!-- Featured player + playlist -->
-  <div class="vid-body">
-
-    <!-- Left: featured player -->
-    <div class="vid-main">
-
-      <!-- HTML5 video player frame -->
-      <div class="vid-player-wrap" id="vid-featured">
-        <div class="vid-placeholder" id="vid-ph">
-          <div class="vid-placeholder-icon" onclick="document.getElementById('vid-file-input').click()" style="cursor:pointer;">▶</div>
-          <p>Click to choose a video from your workspace</p>
-        </div>
-        <video id="vid-player" controls
-               style="position:absolute;inset:0;width:100%;height:100%;display:none;background:#000;">
-          Your browser does not support HTML5 video.
-        </video>
-      </div>
-
-      <!-- Hidden file input -->
-      <input type="file" id="vid-file-input"
-             accept="video/mp4,video/webm,video/ogg,video/quicktime,.mp4,.webm,.mov,.mkv,.avi"
-             style="display:none;" onchange="yfFileChosen(this)" />
-
-      <!-- Controls bar -->
-      <div style="display:flex;gap:0;margin-top:12px;">
-        <button onclick="document.getElementById('vid-file-input').click()"
-                style="flex:1;padding:12px 20px;background:var(--gold);color:var(--ink);
-                       font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;
-                       border:none;cursor:pointer;font-weight:700;transition:background 0.2s;text-align:left;"
-                onmouseover="this.style.background='var(--gold-lt)'"
-                onmouseout="this.style.background='var(--gold)'">
-          📁 &nbsp;Choose Video from Workspace
-        </button>
-        <button onclick="yfVideoClear()" title="Remove video"
-                style="padding:12px 18px;background:rgba(255,255,255,0.05);color:rgba(242,234,216,0.45);
-                       font-family:var(--mono);font-size:11px;border:1px solid rgba(200,144,32,0.1);
-                       border-left:none;cursor:pointer;transition:background 0.2s;"
-                onmouseover="this.style.background='rgba(255,255,255,0.1)'"
-                onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-          ✕ Clear
-        </button>
-      </div>
-      <div id="vid-status" style="font-family:var(--mono);font-size:9px;letter-spacing:1px;
-           color:rgba(242,234,216,0.28);margin-top:7px;min-height:14px;">
-        Supported: MP4 · MOV · WebM · MKV · AVI
-      </div>
-
-      <!-- Caption -->
-      <div class="vid-caption">
-        <div class="vid-caption-tag" id="vid-caption-tag">📽 Video</div>
-        <h3 id="vid-caption-title">No video loaded — choose a file above</h3>
-        <div class="vid-caption-meta">
-          <span>Yellow Feather Books</span>
-          · <span id="vid-caption-size"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: info panel -->
-    <div class="vid-playlist">
-      <div class="vid-playlist-hd">
-        <span>Video Player</span>
-        <span>📽 Local</span>
-      </div>
-
-      <div style="padding:16px 0 14px;border-bottom:1px solid rgba(255,255,255,0.05);">
-        <div class="vid-item-cat" style="margin-bottom:8px;">How to use</div>
-        <div style="font-family:var(--body);font-size:13.5px;color:rgba(242,234,216,0.5);line-height:1.75;">
-          Click <strong style="color:var(--gold-lt);">Choose Video</strong> and pick any video file from your workspace. It plays right here — no internet needed.
-        </div>
-      </div>
-
-      <div style="padding:14px 0 14px;border-bottom:1px solid rgba(255,255,255,0.05);">
-        <div class="vid-item-cat" style="margin-bottom:10px;">Supported formats</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:rgba(200,144,32,0.12);color:var(--gold-lt);padding:3px 9px;">.MP4</span>
-          <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:rgba(200,144,32,0.12);color:var(--gold-lt);padding:3px 9px;">.MOV</span>
-          <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:rgba(200,144,32,0.12);color:var(--gold-lt);padding:3px 9px;">.WEBM</span>
-          <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:rgba(200,144,32,0.12);color:var(--gold-lt);padding:3px 9px;">.MKV</span>
-          <span style="font-family:var(--mono);font-size:8px;letter-spacing:1px;background:rgba(200,144,32,0.12);color:var(--gold-lt);padding:3px 9px;">.AVI</span>
-        </div>
-      </div>
-
-      <div style="padding:14px 0 14px;border-bottom:1px solid rgba(255,255,255,0.05);">
-        <div class="vid-item-cat" style="margin-bottom:8px;">Great for</div>
-        <div style="font-family:var(--body);font-size:13px;color:rgba(242,234,216,0.4);line-height:1.9;">
-          📖 &nbsp;Book reviews<br>
-          📣 &nbsp;New arrival announcements<br>
-          🎙 &nbsp;Author talks &amp; interviews<br>
-          📦 &nbsp;Book unboxings<br>
-          🌿 &nbsp;Store updates &amp; events
-        </div>
-      </div>
-
-      <div style="padding:14px 0 0;">
-        <div class="vid-item-cat" style="margin-bottom:8px;">Now loaded</div>
-        <div id="vid-loaded-name" style="font-family:var(--serif);font-size:14px;
-             color:rgba(242,234,216,0.32);font-style:italic;">No video</div>
-      </div>
-    </div>
-  </div><!-- end vid-body -->
-
-  <!-- Local video file script -->
-  <script>
-  (function(){
-    var objURL = null;
-
-    window.yfFileChosen = function(input) {
-      var file = input.files && input.files[0];
-      if (!file) return;
-      if (objURL) URL.revokeObjectURL(objURL);
-      objURL = URL.createObjectURL(file);
-
-      var player = document.getElementById('vid-player');
-      document.getElementById('vid-ph').style.display = 'none';
-      player.style.display = 'block';
-      player.src = objURL;
-      player.load();
-      player.play();
-
-      var mb = (file.size / 1048576).toFixed(1);
-      var sz = mb > 1024 ? (mb/1024).toFixed(1)+' GB' : mb+' MB';
-      var ext = (file.type.replace('video/','') || file.name.split('.').pop()).toUpperCase();
-
-      document.getElementById('vid-caption-title').textContent = file.name.replace(/\.[^/.]+$/,'');
-      document.getElementById('vid-caption-tag').textContent   = '▶ Now Playing';
-      document.getElementById('vid-caption-size').textContent  = sz + ' · ' + ext;
-      document.getElementById('vid-loaded-name').textContent   = file.name;
-      document.getElementById('vid-status').style.color = 'rgba(200,144,32,0.65)';
-      document.getElementById('vid-status').textContent = '▶ ' + file.name + ' · ' + sz;
-    };
-
-    window.yfVideoClear = function() {
-      var player = document.getElementById('vid-player');
-      player.pause(); player.src = ''; player.style.display = 'none';
-      if (objURL) { URL.revokeObjectURL(objURL); objURL = null; }
-      document.getElementById('vid-file-input').value = '';
-      document.getElementById('vid-ph').style.display = '';
-      document.getElementById('vid-caption-title').textContent = 'No video loaded — choose a file above';
-      document.getElementById('vid-caption-tag').textContent   = '📽 Video';
-      document.getElementById('vid-caption-size').textContent  = '';
-      document.getElementById('vid-loaded-name').textContent   = 'No video';
-      document.getElementById('vid-status').style.color = 'rgba(242,234,216,0.28)';
-      document.getElementById('vid-status').textContent = 'Supported: MP4 · MOV · WebM · MKV · AVI';
-    };
-  })();
-  </script>
-
-  <!-- Bottom category strip -->
-  <div class="vid-cats">
-    <a href="#videos" class="vid-cat">
-      <div class="vid-cat-icon">📖</div>
-      <div class="vid-cat-label">Book Reviews</div>
-      <div class="vid-cat-count">Malayalam &amp; English titles</div>
-    </a>
-    <a href="#videos" class="vid-cat">
-      <div class="vid-cat-icon">📣</div>
-      <div class="vid-cat-label">Announcements</div>
-      <div class="vid-cat-count">New arrivals, offers &amp; events</div>
-    </a>
-    <a href="#videos" class="vid-cat">
-      <div class="vid-cat-icon">🎙</div>
-      <div class="vid-cat-label">Author Talks</div>
-      <div class="vid-cat-count">Interviews &amp; readings</div>
-    </a>
-    <a href="#videos" class="vid-cat">
-      <div class="vid-cat-icon">📦</div>
-      <div class="vid-cat-label">Unboxing</div>
-      <div class="vid-cat-count">New book hauls &amp; collections</div>
-    </a>
-  </div>
-
-</section>
 
 <!-- NEW ARRIVALS -->
 <section class="section" id="arrivals" style="background:var(--parchment);">
@@ -2587,7 +2677,7 @@ footer {
     const fOnSale    = fCompare && fCompare > fPrice;
     const fSoldOut   = fVariant && !fVariant.available;
     const fUrl       = STORE_BASE + f.handle;
-    const fImg       = f.images && f.images[0] ? f.images[0].src.replace(/\.(jpg|png|webp)(\?|$)/, '.$1?width=400') : null;
+    const fImg       = f.images && f.images[0] ? f.images[0].src.replace(/\.(jpg|png|webp)(\?|$)/, '.$1?width=600') : null;
     const fVendor    = f.vendor || '';
     const fType      = f.product_type || 'New Arrival';
     const fDesc      = f.body_html
@@ -2596,9 +2686,11 @@ footer {
     const fBtnLabel  = fSoldOut ? 'Sold Out' : `View Book${fPrice ? ' — ₹' + fPrice : ''}`;
 
     const featuredHTML = `
-      <div class="arrival-featured" onclick="window.open('${fUrl}','_blank')" style="cursor:pointer;position:relative;overflow:hidden;">
-        ${fImg ? `<img src="${fImg}" alt="${f.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;pointer-events:none;">` : ''}
-        <div style="position:relative;z-index:1;">
+      <div class="arrival-featured" onclick="window.open('${fUrl}','_blank')" style="cursor:pointer;">
+        ${fImg
+          ? `<div class="arrival-feat-img-wrap"><img src="${fImg}" alt="${f.title}" loading="lazy"></div>`
+          : `<div class="arrival-feat-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:90px;opacity:0.18;">📚</div>`}
+        <div class="arrival-feat-content">
           <div class="arrival-featured-tag">
             ✨ Just In · ${fVendor || fType}
             ${fOnSale ? ' · <span style="color:#90d090;">On Sale</span>' : ''}
@@ -2624,7 +2716,10 @@ footer {
       const url      = STORE_BASE + p.handle;
       const vendor   = p.vendor || '';
       const ptype    = p.product_type || 'Book';
-      const thumb    = thumbs[(i + 1) % thumbs.length];
+      const pImg     = p.images && p.images[0] ? p.images[0].src.replace(/\.(jpg|png|webp)(\?|$)/, '.$1?width=160') : null;
+      const thumb    = pImg
+        ? `<img src="${pImg}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
+        : thumbs[(i + 1) % thumbs.length];
       const badge    = soldOut ? 'Sold Out' : onSale ? 'Sale · ' + ptype : 'New · ' + ptype;
       const badgeColor = soldOut ? 'color:#d47060;' : onSale ? 'color:#80c080;' : '';
 
